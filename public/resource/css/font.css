@@ -1,0 +1,17 @@
+  @font-face {
+    font-family: "Roboto WEB";
+    src: url(./fonts/Roboto_Regular.woff2);
+  }
+  @font-face {
+    font-family: "Gill Sans WEB";
+    src: url(./fonts/GillSansNova_Light.woff2);
+  }
+
+  body p{
+    margin: 0px;
+  }
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
