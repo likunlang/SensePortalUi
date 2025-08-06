@@ -1,6 +1,6 @@
 <template>
   <div class="home_wrapper">
-    <el-carousel arrow="always" trigger="click" height="100vh" :autoplay="false">
+    <el-carousel arrow="always" trigger="click" height="100vh" :autoplay="true">
       <el-carousel-item v-for="(item, index) in bannerListData" :key="index">
         <div class="banner-img-box" :style="`background-image: url(${item.img});`">
             <div class=" absolute bottom-[8%] sm:bottom-[10%] left-0 right-0 text-center md:px-8 sm:px-6 xs:px-4 ">
@@ -46,7 +46,7 @@
         </div>
       </el-carousel-item>
     </el-carousel>
-    <div class="home_news">
+    <!-- <div class="home_news">
       <div class="container">
         <div class="title">
           <p>
@@ -121,7 +121,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="home_add_bg">
       <div class="home_strategy">
         <div class="container bde-section-11-118 bde-section">
@@ -383,7 +383,7 @@ function viewVideo(item) {
     showVideo.value = true;
     setTimeout(() => {
       play();
-    }, 1000);
+    }, 1500);
   } 
 }
 async function play() {
@@ -540,6 +540,7 @@ function setSr() {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: #000;
   .download_icon {
     font-size: 1.2rem;
     color: #fff;

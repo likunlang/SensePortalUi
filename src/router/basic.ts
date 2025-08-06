@@ -68,10 +68,10 @@ export const PAGES: AppRouteRecordRaw = {
   path: '/',
   component: LAYOUT,
   name: 'Index',
-  redirect: '/index',
+  redirect: '/index.html',
   children: [
     {
-      path: '/index',
+      path: '/index.html',
       name: 'Home',
       component: () => import('@/views/home/index.vue'),
       meta: {
