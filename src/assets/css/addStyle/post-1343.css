@@ -1,0 +1,229 @@
+.breakdance .bde-section-1343-100 .section-container {
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+}
+.breakdance .bde-section-1343-100 .section-container {
+	padding-bottom:96px;
+	padding-top:50px;
+}
+.breakdance .bde-div-1343-128 {
+	padding-top:0px;
+	padding-bottom:48px;
+  margin: 0;
+}
+.breakdance .bde-div-1343-128 {
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+}
+.breakdance .bde-advancedslider-1343-101 {
+	--bde-advanced-slider-height:800px;
+}
+.breakdance .bde-advancedslider-1343-101 .breakdance-swiper-wrapper {
+	--swiper-navigation-size:0px;
+}
+.breakdance .bde-advancedslider-1343-101 .breakdance-swiper-wrapper {
+	padding:0px;
+}
+.breakdance .bde-advancedslider-1343-101 .swiper-pagination {
+	position:absolute;
+}
+.breakdance .bde-advancedslider-1343-101 .swiper-pagination-fraction {
+	color:rgba(255,255,255,0.4);
+	font-size:24px;
+}
+@media (max-width:1119px) {
+	.breakdance .bde-advancedslider-1343-101 .breakdance-swiper-wrapper {
+	padding:0px;
+}
+}@media (max-width:1023px) {
+	.breakdance .bde-advancedslider-1343-101 {
+	--bde-advanced-slider-height:730px;
+}
+.breakdance .bde-advancedslider-1343-101 .breakdance-swiper-wrapper {
+	padding:0px;
+}
+}@media (max-width:767px) {
+	.breakdance .bde-advancedslider-1343-101 .breakdance-swiper-wrapper {
+	padding:0px;
+}
+}@media (max-width:479px) {
+	.breakdance .bde-advancedslider-1343-101 .breakdance-swiper-wrapper {
+	padding:0px;
+}
+}.breakdance .bde-advancedslide-1343-102 .advanced-slider__slide {
+	padding:0px 32px;
+	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("https://iveco.gr/wp-content/uploads/2024/08/1.Iveco-Daily-Whats-new-new_dashboard.jpg");
+	background-size:auto,cover;
+	background-position:0% 0%,center center;
+	background-repeat:repeat,no-repeat;
+	background-attachment:scroll,scroll;
+	background-blend-mode:normal,normal;
+}
+.breakdance .bde-advancedslide-1343-102 .advanced-slider__slide {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+	text-align:left;
+}
+.breakdance .bde-div-1343-103 {
+	width:50%;
+}
+@media (max-width:1023px) {
+	.breakdance .bde-div-1343-103 {
+	width:100%;
+}
+}.breakdance .bde-heading-1343-104 {
+	color:FFF;
+	font-weight:300;
+	margin-bottom:24px;
+}
+.breakdance .bde-text-1343-105 {
+	color:FFF;
+	font-size:18px;
+	font-weight:400;
+	line-height:1.4375rem;
+	margin-bottom:32px;
+}
+.breakdance .bde-advancedslide-1343-107 .advanced-slider__slide {
+	padding:0px 32px;
+	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("https://iveco.gr/wp-content/uploads/2024/08/1.Iveco-Daily-Whats-new-Safe-banner.jpeg");
+	background-size:auto,cover;
+	background-position:0% 0%,center center;
+	background-repeat:repeat,no-repeat;
+	background-attachment:scroll,scroll;
+	background-blend-mode:normal,normal;
+}
+.breakdance .bde-advancedslide-1343-107 .advanced-slider__slide {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+	text-align:left;
+}
+.breakdance .bde-div-1343-108 {
+	width:50%;
+}
+@media (max-width:1023px) {
+	.breakdance .bde-div-1343-108 {
+	width:100%;
+}
+}.breakdance .bde-heading-1343-109 {
+	color:FFF;
+	font-weight:300;
+	margin-bottom:24px;
+}
+.breakdance .bde-text-1343-110 {
+	color:FFF;
+	font-size:18px;
+	font-weight:400;
+	line-height:1.4375rem;
+	margin-bottom:32px;
+}
+.breakdance .bde-advancedslide-1343-112 .advanced-slider__slide {
+	padding:0px 32px;
+	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("https://iveco.gr/wp-content/uploads/2024/08/1.Iveco-Daily-Whats-new-Door-opening-banner.jpeg");
+	background-size:auto,cover;
+	background-position:0% 0%,center center;
+	background-repeat:repeat,no-repeat;
+	background-attachment:scroll,scroll;
+	background-blend-mode:normal,normal;
+}
+.breakdance .bde-advancedslide-1343-112 .advanced-slider__slide {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+	text-align:left;
+}
+.breakdance .bde-div-1343-113 {
+	width:50%;
+}
+@media (max-width:1023px) {
+	.breakdance .bde-div-1343-113 {
+	width:100%;
+}
+}.breakdance .bde-heading-1343-114 {
+	color:FFF;
+	font-weight:300;
+	margin-bottom:24px;
+}
+.breakdance .bde-text-1343-115 {
+	color:FFF;
+	font-size:18px;
+	font-weight:400;
+	line-height:1.4375rem;
+	margin-bottom:32px;
+}
+.breakdance .bde-advancedslide-1343-117 .advanced-slider__slide {
+	padding:0px 32px;
+	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("https://iveco.gr/wp-content/uploads/2024/08/1.Iveco-Daily-Whats-new-Composite-spring-banner.jpeg");
+	background-size:auto,cover;
+	background-position:0% 0%,center center;
+	background-repeat:repeat,no-repeat;
+	background-attachment:scroll,scroll;
+	background-blend-mode:normal,normal;
+}
+.breakdance .bde-advancedslide-1343-117 .advanced-slider__slide {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+	text-align:left;
+}
+.breakdance .bde-div-1343-118 {
+	width:50%;
+}
+@media (max-width:1023px) {
+	.breakdance .bde-div-1343-118 {
+	width:100%;
+}
+}.breakdance .bde-heading-1343-119 {
+	color:FFF;
+	font-weight:300;
+	margin-bottom:24px;
+}
+.breakdance .bde-text-1343-120 {
+	color:FFF;
+	font-size:18px;
+	font-weight:400;
+	line-height:1.4375rem;
+	margin-bottom:32px;
+}
+.breakdance .bde-advancedslide-1343-122 .advanced-slider__slide {
+	padding:0px 32px;
+	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("https://iveco.gr/wp-content/uploads/2024/08/1.Iveco-Daily-Whats-new-100-Connected.jpg");
+	background-size:auto,cover;
+	background-position:0% 0%,center center;
+	background-repeat:repeat,no-repeat;
+	background-attachment:scroll,scroll;
+	background-blend-mode:normal,normal;
+}
+.breakdance .bde-advancedslide-1343-122 .advanced-slider__slide {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	justify-content:center;
+	text-align:left;
+}
+.breakdance .bde-div-1343-123 {
+	width:50%;
+}
+@media (max-width:1023px) {
+	.breakdance .bde-div-1343-123 {
+	width:100%;
+}
+}.breakdance .bde-heading-1343-124 {
+	color:FFF;
+	font-weight:300;
+	margin-bottom:24px;
+}
+.breakdance .bde-text-1343-125 {
+	color:FFF;
+	font-size:18px;
+	font-weight:400;
+	line-height:1.4375rem;
+	margin-bottom:32px;
+}

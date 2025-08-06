@@ -1,0 +1,104 @@
+.breakdance .bde-section-1354-100 .section-container {
+	display:flex;
+	flex-direction:column
+}
+.breakdance .bde-section-1354-100 .section-container {
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	padding-top:0px
+}
+.breakdance .bde-div-1354-101 {
+	width:100%;
+	min-height:820px;
+	padding-right:80px;
+	padding-left:80px
+}
+.breakdance .bde-div-1354-101 {
+	display:flex;
+	flex-direction:column;
+	align-items:flex-end;
+	justify-content:center;
+	text-align:right
+}
+.breakdance .bde-div-1354-101 {
+	background-image:url(https://iveco.gr/wp-content/uploads/2024/08/1.Iveco-Daily-eDaily2024.jpg);
+	background-repeat:no-repeat;
+	background-position:center center
+}
+.breakdance .bde-div-1354-101>* {
+	z-index:1
+}
+.breakdance .bde-div-1354-101>.section-background-overlay {
+	z-index:0
+}
+.breakdance .bde-div-1354-101>.section-background-overlay {
+	background-color:#FFF6;
+	transition:background-color 300ms ease-in-out
+}
+.breakdance .bde-div-1354-101 {
+	overflow:hidden
+}
+@media (max-width:1023px) {
+	.breakdance .bde-div-1354-101 {
+	padding-right:0px;
+	padding-left:0px
+}
+}.breakdance .bde-div-1354-102 {
+	width:50%;
+	padding-right:32px;
+	padding-left:32px;
+  margin-right: 0;
+}
+.breakdance .bde-div-1354-102 {
+	display:flex;
+	flex-direction:column
+}
+@media (max-width:1023px) {
+	.breakdance .bde-div-1354-102 {
+	width:100%
+}
+.breakdance .bde-div-1354-102 {
+	align-items:flex-end;
+	text-align:right
+}
+}.breakdance .bde-heading-1354-103 {
+	margin-bottom:24px
+}
+@media (max-width:1023px) {
+	.breakdance .bde-heading-1354-103 {
+	font-weight:300
+}
+}@media (max-width:767px) {
+	.breakdance .bde-heading-1354-103 {
+	text-align:left
+}
+}.breakdance .bde-button-1354-104 .bde-button__button::after {
+	content:"";
+	display:block;
+	background-color:currentColor;
+	width:24px;
+	height:24px;
+	margin-right:0px;
+	margin-left:10px;
+	mask-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22m21%2012-5-5m5%205-5%205m5-5H3%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E);
+	mask-position:0 0;
+	mask-size:100% 100%;
+	mask-repeat:no-repeat;
+	-webkit-mask-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22m21%2012-5-5m5%205-5%205m5-5H3%22%20stroke%3D%22currentColor%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E);
+	-webkit-mask-position:0 0;
+	-webkit-mask-size:100% 100%;
+	transition-timing-function:ease-in-out;
+	transition-property:transform,background-color;
+	transition-duration:300ms
+}
+.breakdance .bde-button-1354-104 .bde-button__button::after {
+	width:24px;
+	height:24px
+}
+.breakdance .bde-button-1354-104 .bde-button__button::after {
+	margin-right:0px
+}
+.breakdance .bde-button-1354-104 .bde-button__button::after {
+	margin-left:10px
+}

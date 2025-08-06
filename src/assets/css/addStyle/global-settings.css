@@ -1,0 +1,157 @@
+
+.breakdance .button-atom--primary,.bde-mini-cart-offcanvas .button,.bde-woo-product-quicklook-button,.woocommerce-page.woocommerce-lost-password .breakdance-woocommerce button[type="submit"],.breakdance-woocommerce .woocommerce-form-track-order button[type="submit"],.breakdance-woocommerce #place_order,.breakdance-woocommerce .woocommerce-button.pay,.breakdance-woocommerce button.single_add_to_cart_button,.breakdance-woocommerce a.single_add_to_cart_button,.breakdance-woocommerce a.button.wc-backward,.breakdance-woocommerce a.checkout-button,.breakdance-woocommerce p.order-again a.button,.breakdance-woocommerce button[name="add-to-cart"],.breakdance-woocommerce button[name="login"],.breakdance-woocommerce button[name="save_address"],.breakdance-woocommerce button[name="save_account_details"],.breakdance-woocommerce button[name="woocommerce_checkout_place_order"],.breakdance-woocommerce .woocommerce-MyAccount-content a.button[href*="add-payment-method"] {
+    --bde-button-primary-border-color: transparent;
+    --bde-button-primary-border-color-hover: transparent;
+    --bde-button-primary-text-color: #fff;
+    --bde-button-primary-text-color-hover: #fff;
+    --bde-button-primary-background-color: #1554FF;
+    --bde-button-primary-background-color-hover: #0048e6;
+    border-radius: 0px;
+    font-family: "Roboto WEB";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding-top: 14px;
+    padding-right: 20px;
+    padding-bottom: 14px;
+    padding-left: 20px
+}
+
+.breakdance .button-atom--secondary,.breakdance-woocommerce .woocommerce-MyAccount-downloads-file,.breakdance-woocommerce .woocommerce-Address a.edit,.breakdance-woocommerce .woocommerce-button.view,.breakdance-woocommerce .woocommerce-Button--previous,.breakdance-woocommerce .woocommerce-Button--next,.breakdance-woocommerce .widget_price_filter .button,.breakdance-woocommerce a.button.add_to_cart_button,.breakdance-woocommerce a.button.product_type_grouped,.breakdance-woocommerce .added_to_cart,.breakdance-woocommerce .woocommerce-widget-layered-nav-dropdown__submit,.breakdance-woocommerce .woocommerce-product-search button[type="submit"],.breakdance-woocommerce a.product_type_simple,.breakdance-woocommerce a.product_type_variable,.breakdance-woocommerce .form-submit input[type="submit"],.breakdance-woocommerce button[name="update_cart"],.breakdance-woocommerce button[name="calc_shipping"],.breakdance-woocommerce button[name="apply_coupon"],.breakdance-woocommerce a.product_type_external {
+    --bde-button-secondary-border-color: transparent;
+    --bde-button-secondary-border-color-hover: transparent;
+    --bde-button-secondary-text-color: #fff;
+    --bde-button-secondary-text-color-hover: #fff;
+    --bde-button-secondary-background-color: #000;
+    --bde-button-secondary-background-color-hover: #424242;
+    border-radius: 0px;
+    font-family: "Roboto WEB";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding-top: 7px;
+    padding-right: 14px;
+    padding-bottom: 5px;
+    padding-left: 14px
+}
+.breakdance {
+	font-family:"Roboto WEB";
+	font-size:16px;
+}
+.bde-h1,.bde-h2,.bde-h3,.bde-h4,.bde-h5,.bde-h6,.breakdance h1,.breakdance h2,.breakdance h3,.breakdance h4,.breakdance h5,.breakdance h6 {
+	font-family:"Gill Sans WEB";
+}
+.bde-h1,.breakdance h1 {
+    font-size: 112px;
+    font-weight: 300;
+    line-height: 6rem;
+    letter-spacing: -0.01em
+}
+
+.bde-h2,.breakdance h2 {
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 6rem;
+    letter-spacing: -0.01em
+}
+
+.bde-h3,.breakdance h3 {
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 5.187rem
+}
+
+.bde-h4{
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 3.875rem
+}
+
+.bde-h5,.breakdance h5 {
+    font-size: 24px;
+    font-weight: 400
+}
+
+.breakdance a,.breakdance .button-atom--text {
+    text-decoration: none;
+    text-decoration-style: none
+}
+[class^='bde'] {
+    scroll-margin-top: 120px;
+}
+
+.breakdance .button-atom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    user-select: none;
+    appearance: none;
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    font-size: 18px;
+    line-height: 1;
+    transform: translate(0,0);
+    max-width: 100%;
+}
+[class^='bde'] {
+	scroll-margin-top:120px
+}
+@media (max-width:1119px) {
+	.breakdance-global-gradients-sprite {
+	position:absolute;
+	width:0;
+	height:0;
+	overflow:hidden
+}
+[class^='bde'] {
+	scroll-margin-top:120px
+}
+}@media (max-width:1023px) {
+	.breakdance-global-gradients-sprite {
+	position:absolute;
+	width:0;
+	height:0;
+	overflow:hidden
+}
+.breakdance .bde-h1,.breakdance h1 {
+	font-size:64px
+}
+.bde-h2,.breakdance h2 {
+	font-size:48px;
+	line-height:3.625rem
+}
+.bde-h3,.breakdance h3 {
+	font-size:40px;
+	line-height:3rem
+}
+.breakdance .bde-h4,.breakdance h4 {
+	font-size:32px;
+}
+[class^='bde'] {
+	scroll-margin-top:120px
+}
+}@media (max-width:767px) {
+	.breakdance-global-gradients-sprite {
+	position:absolute;
+	width:0;
+	height:0;
+	overflow:hidden
+}
+[class^='bde'] {
+	scroll-margin-top:120px
+}
+}@media (max-width:479px) {
+	.breakdance-global-gradients-sprite {
+	position:absolute;
+	width:0;
+	height:0;
+	overflow:hidden
+}
+[class^='bde'] {
+	scroll-margin-top:120px
+}
+}
