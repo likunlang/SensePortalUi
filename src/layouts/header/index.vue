@@ -1,6 +1,6 @@
 <template>
   <div :class="['all_header', 'scroll_header']">
-    <div class="container header-container clearfix">
+    <div class="sense_container header-container clearfix">
       <div class="logo" style="cursor: pointer;" @click="goHome">
         <img :src="logoImg" alt="logo">
       </div>
@@ -275,7 +275,7 @@ function contactUs() {
   font-weight: bold;
   font-size: 20px;
 }
-.all_header .container.header-container {
+.all_header .sense_container.header-container {
   display: flex;
   align-items: center;
   position: relative;
@@ -297,6 +297,13 @@ function contactUs() {
     }
     .search-pc-item:nth-child(2) {
       margin-left: 20px;
+    }
+  }
+}
+@media screen and (max-width: 1080px) {
+  .search {
+    .search-pc {
+      display: none;
     }
   }
 }

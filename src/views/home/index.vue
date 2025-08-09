@@ -47,7 +47,7 @@
       </el-carousel-item>
     </el-carousel>
     <!-- <div class="home_news">
-      <div class="container">
+      <div class="sense_container">
         <div class="title">
           <p>
             <a href="javasctipt:;">
@@ -124,7 +124,7 @@
     </div> -->
     <div class="home_add_bg">
       <div class="home_strategy">
-        <div class="container bde-section-11-118 bde-section">
+        <div class="sense_container bde-section-11-118 bde-section">
           <div class="title">
             <p>
               <a href="javasctipt:;">
@@ -218,7 +218,7 @@
               </div>
             </div>
           </div> -->
-          <Flex class="home_add" wrap="wrap" gap="small">
+          <Flex class="home_add" gap="large">
             <div class="item item1">
               <img :src="subBanner1" alt="" class="bg">
               <!-- <h4 class="tit">
@@ -280,7 +280,7 @@
     <div class="home_center">
       <div class="mask">
       </div>
-      <div class="container" id="about_us" style="position: relative;z-index: 999;">
+      <div class="sense_container" id="about_us" style="position: relative;z-index: 999;">
         <div class="title">
           <p>
             <a href="javasctipt:;">
@@ -292,9 +292,11 @@
         <p class="text-white/70">
           As the Exclusive Regional Official Representative for Dongfeng and Wuling New Energy Vehicles, SenseMotor delivers cutting -edge electric commercial vehicles and innovative logistics solutions throughout Central and Eastern Europe.
         </p>
+        <br />
         <p class="text-white/70">
           Our comprehensive ecosystem integrates extensive distribution networks, dedicated technical support, seamless project delivery, and a reliable service station network for electric light trucks and vans.
         </p>
+        <br />
         <p class="text-white/70">
           Operating in Poland, Hungary, Greece, and Romania, we empower sustainable logistics and optimize fleet efficiency, driving the future of clean transportation in the region.
         </p>
@@ -419,16 +421,7 @@ function setSr() {
     delay: 100
   });
 
-  // sr.reveal('.home_center .li1', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 100
-  // });
+
   // sr.reveal('.home_center .li2', {
   //   reset: true,
   //   distance: '60px',
@@ -523,12 +516,32 @@ function setSr() {
   sr.reveal('.home_add', {
     reset: true,
     distance: '40px',
-    duration: 1000,
+    duration: 500,
     origin: 'bottom',
     easing: 'ease',
     scale: 1,
     opacity: 0,
     delay: 100
+  });
+  sr.reveal('.home_center .title', {
+    reset: true,
+    distance: '40px',
+    duration: 300,
+    origin: 'bottom',
+    easing: 'ease',
+    scale: 1,
+    opacity: 0,
+    delay: 100
+  });
+  sr.reveal('.home_center p', {
+    reset: true,
+    distance: '20px',
+    duration: 400,
+    origin: 'bottom',
+    easing: 'ease',
+    scale: 1,
+    opacity: 0,
+    delay: 200
   });
 }
 </script>
@@ -571,7 +584,7 @@ function setSr() {
   margin: 0;
   text-align: center;
 }
-.container {
+.sense_container {
   .group-banner-box {
     width: 100%;
     height: 150px;
@@ -598,6 +611,16 @@ function setSr() {
 }
 @media screen and (max-width: 1080px) {
 
+}
+@media screen and (max-width: 992px) {
+  .home_strategy .home_add {
+    // flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home_strategy .home_add .item {
+    width: 100%;
+  }
 }
 .contrast-box {
   .contrast-l,
