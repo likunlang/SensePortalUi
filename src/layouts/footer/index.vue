@@ -3,15 +3,21 @@
     <div class="w-full text-center">
       <div class="md:mb-6 mb-8 flex justify-between items-center footer-box">
         <a class="hover:no-underline shrink-0 text-white/80 cursor-pointer">
-          <el-icon class="mr-1 footer-icon"><Message /></el-icon>
+          <svg class="sense-icon" aria-hidden="true">
+            <use xlink:href="#sense-email"></use>
+          </svg>
           Email: info@sensemotor.com
         </a>
         <a class="hover:no-underline shrink-0 text-white/80 cursor-pointer">
-          <el-icon class="mr-1 footer-icon"><ChatSquare /></el-icon>
+          <svg class="sense-icon" aria-hidden="true">
+            <use xlink:href="#sense-whatsapp"></use>
+          </svg>
           Whatsapp: +40 762075103
         </a>
         <a class="hover:no-underline shrink-0 text-white/80 cursor-pointer">
-          <el-icon class="mr-1 footer-icon"><Location /></el-icon>
+          <svg class="sense-icon" aria-hidden="true">
+            <use xlink:href="#sense-location"></use>
+          </svg>
           Add:Bloc 452, Aleea Dealul Măcinului 1a, București Romania
         </a>
       </div>

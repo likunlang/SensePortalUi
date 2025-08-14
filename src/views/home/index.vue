@@ -20,7 +20,9 @@
                     " style="margin-left: 0"
                     @click="download(item)"
                   >
-                    <DownloadOutlined class="download_icon"/>
+                    <svg class="sense-icon" aria-hidden="true">
+                      <use xlink:href="#sense-download"></use>
+                    </svg>
                   </button>
                   
                   <button class="
@@ -38,7 +40,9 @@
                     v-if="item.videoUrl"
                     @click="viewVideo(item)"
                   >
-                    <CaretRightFilled class="download_icon"/>
+                    <svg class="sense-icon" aria-hidden="true">
+                      <use xlink:href="#sense-caret-right"></use>
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -565,6 +569,7 @@ function setSr() {
       0 0 40px rgba(0, 0, 0, 0.1),
       0 0 60px rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
+    font-size: 1.3rem;
   }
   .download-btn:hover{
     // transform: scale(1.05);
