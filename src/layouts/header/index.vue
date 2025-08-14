@@ -77,19 +77,14 @@
             </div>
           </a>
         </div>
-        <a href="javascript:;" @click="showMobileNav = !showMobileNav" id="mobile_key" class="search-mobile mobile_key fr"></a>
+        <a href="javascript:;" @click="showMobileNav = !showMobileNav" id="mobile_key" class="search-mobile mobile_key fr">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect v-bind="showMobileNav ? svg_item_1[1] : svg_item_1[0]"></rect>
+            <rect v-bind="showMobileNav ? svg_item_2[1] : svg_item_2[0]"></rect>
+            <rect v-bind="showMobileNav ? svg_item_3[1] : svg_item_3[0]"></rect>
+          </svg>
+        </a>
       </div>
-      <!-- <div class="search_block">
-        <div :class="['search_box', showSearch ? 'show' : '']">
-          <input id="search-nav-key" type="text" v-model="searchKey" placeholder="请输入关键词">
-          <span></span>
-          <a href="javascript:;" @click="searchJump">
-            <el-icon size="20" color="#fff" >
-              <Search id="header_icon_search1"/>
-            </el-icon>
-          </a>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -118,6 +113,66 @@ const leftList: any = ref([]);
 const pathName: any = ref('');
 
 const navListRef = ref();
+
+
+const svg_item_1 = [
+  {
+    x: 2,
+    y: 3.5,
+    width: 16,
+    height: 1,
+    fill: '#ffffff',
+    'fill-opacity': 0.9,
+    transform: 'rotate(0 0 0)',
+  },
+  {
+    x: 3.98975,
+    y: 3.28247,
+    width: 18,
+    height: 1,
+    fill: '#ffffff',
+    'fill-opacity': 0.9,
+    transform: 'rotate(45 3.98975 3.28247)',
+  }
+];
+const svg_item_2 = [
+  {
+    x: 2,
+    y: 9.5,
+    width: 16,
+    height: 1,
+    fill: '#ffffff',
+    'fill-opacity': 0.9,
+    transform: 'rotate(0 0 0)',
+  },
+  {
+    x: 3.28271,
+    y: 16.0104,
+    width: 18,
+    height: 1,
+    fill: '#ffffff',
+    'fill-opacity': 0.9,
+    transform: 'rotate(-45 3.28271 16.0104)',
+  }
+];
+const svg_item_3 = [
+  {
+    x: 2,
+    y: 15.5,
+    width: 16,
+    height: 1,
+    fill: '#ffffff',
+    'fill-opacity': 0.9,
+  },
+  {
+    x: 2,
+    y: 22,
+    width: 16,
+    height: 1,
+    fill: '#ffffff',
+    'fill-opacity': 0,
+  }
+]
 
 watch(
   () => router.currentRoute.value,
