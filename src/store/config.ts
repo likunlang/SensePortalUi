@@ -189,14 +189,14 @@ export const bannerListData = [
     title: '轮播图3',
     img: banner_G050,
     docUrl: '/resource/doc/G050.pdf',
-    videoUrl: '/resource/video/G050.mp4',
+    videoUrl: '/resource/video/G050.mp4?v=1.0',
     content: '',
   },
   {
     title: '轮播图1',
     img: banner_G105,
     docUrl: '/resource/doc/G105.pdf',
-    // videoUrl: '/resource/video/G105.mp4',
+    videoUrl: '/resource/video/G105.mp4',
     content: '',
   },
 ];
