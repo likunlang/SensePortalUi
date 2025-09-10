@@ -126,7 +126,7 @@
         </div>
       </div>
     </div> -->
-    <div class="home_add_bg">
+    <div class="home_add_bg" :style="`background-image: url(${CDNUrl}/images/add_bg.png)`">
       <div class="home_strategy">
         <div class="sense_container bde-section-11-118 bde-section">
           <div class="title">
@@ -224,7 +224,7 @@
           </div> -->
           <Flex class="home_add" gap="large">
             <div class="item item1">
-              <img :src="subBanner1" alt="" class="bg">
+              <img :src="`${CDNUrl}/images/str_img1.png`" alt="" class="bg">
               <!-- <h4 class="tit">
                 Economical
               </h4> -->
@@ -242,7 +242,7 @@
               </div>
             </div>
             <div class="item item2">
-              <img :src="subBanner2" alt="" class="bg">
+              <img :src="`${CDNUrl}/images/str_img2.png`" alt="" class="bg">
               <!-- <h4 class="tit">
                 Efficient
               </h4> -->
@@ -260,7 +260,7 @@
               </div>
             </div>
             <div class="item item3">
-              <img :src="subBanner3" alt="" class="bg">
+              <img :src="`${CDNUrl}/images/str_img3.png`" alt="" class="bg">
               <!-- <h4 class="tit">
                 Environmental Friendly
               </h4> -->
@@ -281,7 +281,7 @@
         </div>
       </div>
     </div>
-    <div class="home_center">
+    <div class="home_center" :style="`background-image: url(${CDNUrl}/images/center_bg.png)`">
       <div class="mask">
       </div>
       <div class="sense_container" id="about_us" style="position: relative;z-index: 999;">
@@ -348,17 +348,17 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { bannerListData, newsListData } from "@/store/config";
+import { bannerListData, newsListData, CDNUrl } from "@/store/config";
 import { Flex } from "ant-design-vue";
 import { CaretRightFilled, DownloadOutlined } from '@ant-design/icons-vue';
 
-import GroupBanner from '@/assets/images/group-banner.jpg';
-import IVECO from '@/assets/newImages/IVECO-Drivers-Club.png';
-import subBanner1 from '@/assets/newImages/str_img1.png';
-import subBanner2 from '@/assets/newImages/str_img2.png';
-import subBanner3 from '@/assets/newImages/str_img3.png';
-import SampleEv from '@/assets/newImages/sampleEv.png';
-import SampleOil from '@/assets/newImages/sampleOil.png';
+// import GroupBanner from '@/assets/images/group-banner.jpg';
+// import IVECO from '@/assets/newImages/IVECO-Drivers-Club.png';
+// import subBanner1 from '@/assets/newImages/str_img1.png';
+// import subBanner2 from '@/assets/newImages/str_img2.png';
+// import subBanner3 from '@/assets/newImages/str_img3.png';
+// import SampleEv from '@/assets/newImages/sampleEv.png';
+// import SampleOil from '@/assets/newImages/sampleOil.png';
 import closeIcon from '@/assets/newImages/popup_close_button.png';
 
 const modules = [Pagination];

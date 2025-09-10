@@ -18,7 +18,7 @@
           <svg class="sense-icon" aria-hidden="true">
             <use xlink:href="#sense-location"></use>
           </svg>
-          Add:Bloc 452, Aleea Dealul Măcinului 1a, București Romania
+          Add: Bloc 452, Aleea Dealul Măcinului 1a, București Romania
         </a>
       </div>
       <div class="flex lg:flex-col text-l text-light-300 md:flex md:flex-col md:items-center">

@@ -1,13 +1,18 @@
-import banner_G105 from '@/assets/newImages/banner_G105.png';
-import banner_V5 from '@/assets/newImages/banner_V5.png';
-import banner_G050 from '@/assets/newImages/banner_G050.png';
-import banner_T from '@/assets/newImages/banner_T.png';
-import banner_V9 from '@/assets/newImages/banner_V9.png';
+// import banner_G105 from '@/assets/newImages/banner_G105.png';
+// import banner_V5 from '@/assets/newImages/banner_V5.png';
+// import banner_G050 from '@/assets/newImages/banner_G050.png';
+// import banner_T from '@/assets/newImages/banner_T.png';
+// import banner_V9 from '@/assets/newImages/banner_V9.png';
 
-import vehicle1_1 from '@/assets/newImages/vehicle1_1.jpg';
-import vehicle1_2 from '@/assets/newImages/vehicle1_2.jpg';
-import vehicle1_3 from '@/assets/newImages/vehicle1_3.jpg';
-import vehicle1_4 from '@/assets/newImages/vehicle1_4.jpg';
+// import vehicle1_1 from '@/assets/newImages/vehicle1_1.jpg';
+// import vehicle1_2 from '@/assets/newImages/vehicle1_2.jpg';
+// import vehicle1_3 from '@/assets/newImages/vehicle1_3.jpg';
+// import vehicle1_4 from '@/assets/newImages/vehicle1_4.jpg';
+
+import { getEnv } from '@/utils/env';
+
+export const CDNUrl = getEnv() === 'development' ? "https://pub-ef972d7a1bcc47888d714e9a2dd3c88b.r2.dev" : "https://assets.senseautos.com";
+// dev时  CDNUrl也可以用/resource
 
 export const menuTree = [
   // {
@@ -166,59 +171,59 @@ export const menuTree = [
 export const bannerListData = [
   {
     title: '轮播图5',
-    img: banner_V9,
-    docUrl: '/resource/doc/V9.png',
-    videoUrl: '/resource/video/V9.mp4',
+    img: CDNUrl + '/images/banner_V9.png',
+    docUrl: CDNUrl + '/doc/V9.png',
+    videoUrl: CDNUrl + '/video/V9.mp4',
     content: '',
   },
   {
     title: '轮播图4',
-    img: banner_T,
-    docUrl: '/resource/doc/T.png',
-    videoUrl: '/resource/video/T.mp4',
+    img: CDNUrl + '/images/banner_T.png',
+    docUrl: CDNUrl + '/doc/T.png',
+    videoUrl: CDNUrl + '/video/T.mp4',
     content: '',
   },
   {
     title: '轮播图2',
-    img: banner_V5,
-    docUrl: '/resource/doc/V5.png',
-    videoUrl: '/resource/video/V5.mp4',
+    img: CDNUrl + '/images/banner_V5.png',
+    docUrl: CDNUrl + '/doc/V5.png',
+    videoUrl: CDNUrl + '/video/V5.mp4',
     content: '',
   },
   {
     title: '轮播图3',
-    img: banner_G050,
-    docUrl: '/resource/doc/G050.pdf',
-    videoUrl: '/resource/video/G050.mp4?v=1.0',
+    img: CDNUrl + '/images/banner_G050.png',
+    docUrl: CDNUrl + '/doc/G050.pdf',
+    videoUrl: CDNUrl + '/video/G050.mp4?v=1.0',
     content: '',
   },
   {
     title: '轮播图1',
-    img: banner_G105,
-    docUrl: '/resource/doc/G105.pdf',
-    videoUrl: '/resource/video/G105.mp4',
+    img: CDNUrl + '/images/banner_G105.png',
+    docUrl: CDNUrl + '/doc/G105.pdf',
+    videoUrl: CDNUrl + '/video/G105.mp4',
     content: '',
   },
 ];
 export const vehiclesBanner = [
   {
     title: 'Van',
-    img: vehicle1_1,
+    // img: vehicle1_1,
     content: '',
   },
   {
     title: 'Cab',
-    img: vehicle1_2,
+    // img: vehicle1_2,
     content: '',
   },
   {
     title: '4X4',
-    img: vehicle1_3,
+    // img: vehicle1_3,
     content: '',
   },
   {
     title: 'CNG',
-    img: vehicle1_4,
+    // img: vehicle1_4,
     content: '',
   }
 ];
