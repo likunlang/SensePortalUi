@@ -6,12 +6,7 @@
       </div>
       <div class="navigation">
         <ul class="first_nav clearfix" ref="navListRef" id="nav-list">
-          <li :class="['li_nav', pathName === 'Home' ? 'active' : '']">
-            <a class="header-title" href="/" target="_self">
-              Home
-            </a>
-          </li>
-          <li :class="['li_nav', item.active ? 'active' : '']" v-for="(item, index) in menuTree" :key="index" >
+          <li :class="['li_nav', isActiveMenu(item) ? 'active' : '']" v-for="(item, index) in menuTree" :key="index" >
             <a class="header-title" href="javascript:;" @click="go(item)" target="_self">
               {{ item.title }}
             </a>
@@ -23,7 +18,7 @@
                   </h4>
                   <ul class="clearfix">
                     <li v-for="(_i,_j) in i.children" :key="_j">
-                      <a  href="javascript:;" :class="[ _i.active ? 'active' : '']"  @click="go(_i)">
+                      <a  href="javascript:;" :class="[ isActiveMenu(_i) ? 'active' : '']"  @click="go(_i)">
                         {{ _i.title }}
                       </a>
                     </li>
@@ -31,7 +26,7 @@
                 </template>
                 <template v-else>
                   <h4>
-                    <a href="javascript:;" :class="[ i.active ? 'active' : '']" @click="go(i)">{{ i.title }}</a>
+                    <a href="javascript:;" :class="[ isActiveMenu(i) ? 'active' : '']" @click="go(i)">{{ i.title }}</a>
                   </h4>
                 </template>
               </div>
@@ -45,7 +40,7 @@
         <nav id="mobile-nav">
           <ul :class="['fix_nav', showMobileNav ? 'mm-opend' : '', showMobileSubNav ? 'mm-sopend' : '']" id="mm-m0-p0">
             <li v-for="(item, index) in menuTree" :key="index" @click="mobileMenuClick(item, index)">
-              <a :class="[item.active ? 'active': '' ]">
+              <a :class="[isActiveMenu(item) ? 'active': '' ]">
                 {{ item.title }}
                 <span :class="[item.children?.length ? 'mm-subopen' : '']"></span>
               </a>
@@ -57,10 +52,10 @@
                 <a class="mm-subclose">{{item.title}}</a>
               </li>
               <li @click="mobileMenuClick(_item, index)" v-if='item.children?.length' v-for="(_item, _index) in item.children" :key="_index">
-                <a :class="[_item.active ? 'active': '' ]">{{_item.title}}</a>
+                <a :class="[isActiveMenu(_item) ? 'active': '' ]">{{_item.title}}</a>
                 <ul class="thrid_nav" v-if="_item.children?.length">
                   <li @click="mobileMenuClick(_ite, index)" v-for="(_ite, _ind) in _item.children" :key="_ind">
-                    <a :class="[_ite.active ? 'active': '' ]">{{_ite.title}}</a>
+                    <a :class="[isActiveMenu(_ite) ? 'active': '' ]">{{_ite.title}}</a>
                   </li>
                 </ul>
               </li>
@@ -70,7 +65,7 @@
       </div>
       <div class="search">
         <div class="search-pc">
-          <a class="search-pc-item" href="javascript:;" @click="go({ path: '#contact_us'})">
+          <a class="search-pc-item" href="javascript:;" @click="scrollBottom">
             <el-icon class="search-pc-item-icon" size="20"><Message /></el-icon>
             <div class="search-pc-item-text">
               Contact us
@@ -90,13 +85,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick, computed, watch, unref } from "vue";
+import { ref, onMounted, nextTick, computed, watch, unref, useEffect } from "vue";
 import { useStore } from "@/store/user";
 import closeIcon from '@/assets/images/close_icon.png';
 import searchIcon from '@/assets/images/search_icon.png';
 import router from '@/router';
 import { PAGE_NOT_FOUND_NAME, } from '@/router/constant';
-import { openPath } from '@/utils';
+import { openPath, scrollToHash } from '@/utils';
 import { menuTree, CDNUrl } from '@/store/config';
 
 // import logoImg from '@/assets/newImages/logo_header.png';
@@ -174,6 +169,7 @@ const svg_item_3 = [
   }
 ]
 
+const currentFullPath = ref('/');
 watch(
   () => router.currentRoute.value,
   (r) => {
@@ -185,9 +181,30 @@ watch(
     } else {
       scrollTop.value = true;
     }
+    currentFullPath.value = r?.fullPath;
   },
    { immediate: true, deep: true },
 )
+
+function isActiveMenu(item = {}) {
+  const { path } = item;
+  const arr = path.split('#');
+  const pathName = arr[0];
+  if (pathName === '/') {
+    return currentFullPath.value === path;
+  } else {
+    return pathName == window.location.pathname;
+  }
+}
+function scrollBottom() {
+  // 计算滚动到底部的垂直距离
+  const scrollHeight = document.documentElement.scrollHeight; // 页面总高度
+  const clientHeight = document.documentElement.clientHeight; // 视口高度
+  const scrollToBottom = scrollHeight - clientHeight;
+
+  // 滚动到底部（瞬间跳转）
+  window.scrollTo(0, scrollToBottom);
+}
 function toggoleSearch() {
   showSearch.value = !showSearch.value; 
 }
@@ -307,16 +324,14 @@ function goHome() {
 }
 function go(item: any) {
   const { path } = item;
-  if (path?.indexOf("#") > -1) {
-    const id = path.split('#')[1];
-    id && document?.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth', //动画过渡效果
-      block: 'start', //垂直方向的对齐
-      inline: 'start', //水平方向的对齐
-    });
-  } else {
+  const arr = path.split('#');
+  const pathName = arr[0];
+  const id = arr[1];
+  if (pathName == window.location.pathname && id) {
+    // 当前页面hash跳转
+    scrollToHash('#' + id);
+  } 
     openPath(path);
-  }
 }
 function contactUs() {
   // console.log(1)

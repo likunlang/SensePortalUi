@@ -6,7 +6,7 @@ import '@/assets/css/tailwind.css';
 import { setupStore } from '@/store';
 
 import ElementPlus from "element-plus";
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import en from 'element-plus/dist/locale/en.mjs'
 import "element-plus/dist/index.css";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
@@ -17,7 +17,7 @@ app.use(router);
 setupStore(app);
 
 app.use(ElementPlus,{
-  locale: zhCn,
+  locale: en,
 }).mount("#app");
 
 //全局注册图标组件

@@ -9,15 +9,6 @@ import {
   PAGE_NOT_FOUND_NAME,
 } from '@/router/constant';
 
-export const RootRoute: AppRouteRecordRaw = {
-  path: '/',
-  name: 'Root',
-  redirect: PageEnum.BASE_HOME,
-  meta: {
-    title: 'Root',
-  },
-};
-
 // 404 on a page
 export const PAGE_NOT_FOUND_ROUTE: AppRouteRecordRaw = {
   path: '/:path(.*)*',
@@ -68,14 +59,32 @@ export const PAGES: AppRouteRecordRaw = {
   path: '/',
   component: LAYOUT,
   name: 'Index',
-  redirect: '/index.html',
+  redirect: PageEnum.BASE_HOME,
   children: [
     {
-      path: '/index.html',
+      path: PageEnum.BASE_HOME,
       name: 'Home',
       component: () => import('@/views/home/index.vue'),
       meta: {
         title: 'Home',
+        affix: true,
+      },
+    },
+    {
+      path: '/news',
+      name: 'News',
+      component: () => import('@/views/news/index.vue'),
+      meta: {
+        title: 'News',
+        affix: true,
+      },
+    },
+    {
+      path: '/newsDetail',
+      name: 'NewsDetail',
+      component: () => import('@/views/news/detail.vue'),
+      meta: {
+        title: 'NewsDetail',
         affix: true,
       },
     },
@@ -93,7 +102,6 @@ export const PAGES: AppRouteRecordRaw = {
 
 // Basic routing without permission
 export const basicRoutes = [
-  RootRoute,
   REDIRECT_ROUTE,
   PAGE_NOT_FOUND_ROUTE,
   PAGES,

@@ -1,6 +1,7 @@
 import type { App, Plugin } from 'vue';
 import { isObject, isUrl } from '@/utils/is';
 import router from "@/router";
+import { nextTick } from "vue";
 
 let dynamicViewsModules: Record<string, () => Promise<Recordable>>;
 
@@ -120,4 +121,68 @@ export function openPath(path: string) {
       router.push(path)
     }
   }
+}
+/**
+ * 模拟分页请求接口
+ * @param {number} pageNo 当前页码（默认1）
+ * @param {number} pageSize 每页数量（默认10）
+ * @param {array} listData mock数据（默认[]）
+ * @returns {Promise} 包含分页数据的 Promise
+ */
+export function mockPaginationApi(params) {
+  const { pageNo = 1, pageSize = 10, listData = [] } = params;
+  return new Promise((resolve, reject) => {
+    // 模拟网络延迟（50-200ms）
+    const delay = Math.floor(Math.random() * 150) + 50;
+    
+    setTimeout(() => {
+      try {
+        // 校验参数有效性
+        if (typeof pageNo !== 'number' || pageNo < 1) throw new Error('页码必须≥1');
+        if (typeof pageSize !== 'number' || pageSize < 1) throw new Error('每页数量必须≥1');
+
+        // 计算分页数据
+        const total = listData.length; // 总数据量
+        const totalPage = Math.ceil(total / pageSize); // 总页数
+        const start = (pageNo - 1) * pageSize; // 数据起始索引
+        const end = start + pageSize; // 数据结束索引
+
+        // 截取当前页数据（处理边界：start超过总长度时返回空数组）
+        const currentData = start >= total 
+            ? [] 
+            : listData.slice(start, end);
+
+        // 模拟接口返回结构
+        resolve({
+          code: 200,
+          data: {
+              list: currentData, // 当前页数据
+              pageNo: pageNo, // 当前页码
+              pageSize: pageSize, // 每页数量
+              total: total, // 总数据量
+              totalPage: totalPage // 总页数
+          },
+          message: '分页数据获取成功'
+        });
+      } catch (error) {
+          reject({
+              code: 400,
+              message: error.message,
+              error: error.stack
+          });
+      }
+    }, delay);
+  });
+}
+export async function scrollToHash(hash) {
+  if (!hash) return;
+  await nextTick();
+  const id = hash.split('#')[1];
+  setTimeout(() => {
+    id && document?.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth', //动画过渡效果
+      block: 'start', //垂直方向的对齐
+      inline: 'start', //水平方向的对齐
+    });
+  }, 100)
 }

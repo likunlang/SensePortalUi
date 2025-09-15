@@ -351,6 +351,7 @@ import 'swiper/css/pagination';
 import { bannerListData, newsListData, CDNUrl } from "@/store/config";
 import { Flex } from "ant-design-vue";
 import { CaretRightFilled, DownloadOutlined } from '@ant-design/icons-vue';
+import { scrollToHash } from '@/utils';
 
 // import GroupBanner from '@/assets/images/group-banner.jpg';
 // import IVECO from '@/assets/newImages/IVECO-Drivers-Club.png';
@@ -372,6 +373,10 @@ onMounted(async () => {
   setTimeout(() => {
     setSr();
   }, 200);
+  const hash = window.location.hash;
+  if (hash) {
+    scrollToHash(hash);
+  }
 })
 
 async function initPage() {

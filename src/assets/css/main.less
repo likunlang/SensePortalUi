@@ -1806,7 +1806,7 @@ p {
   width: 100%;
 }
 .childpage_wrapper .content_block .second_page {
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
   // display: none;
 }
 .childpage_wrapper .content_block .second_page .title {
@@ -2898,6 +2898,21 @@ p {
   right: 0;
   margin: 0 auto;
 }
+.news_container {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1240px) {
+  .news_container {
+      width:100%;
+      padding: 0 30px;
+      box-sizing: border-box;
+  }
+}
+.news_container .pagination {
+  margin: 30px 0 50px 0;
+  float: right;
+}
 .news_wrapper {
   width: 100%;
   background-color: rgb(246, 246, 246);
@@ -2950,7 +2965,7 @@ p {
   bottom: 0;
 }
 .news_wrapper .content_block {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 .news_wrapper ul.block_list {
   width: 100%;
@@ -3114,14 +3129,14 @@ p {
 }
 .news_wrapper .new_list ul.new_ul li .text .news-title-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .news_wrapper .new_list ul.new_ul li .text h4 {
   width: 100%;
   height: 48px;
   font-size: 18px;
   color: #111111;
-  margin-top: 25px;
+  margin-top: 0;
   font-weight: initial;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -3167,13 +3182,13 @@ p {
   transition: all 1s;
 }
 .news_wrapper .new_list ul.new_ul li:hover {
-  border: 2px solid #40A0D6;
+  border: 2px solid #0232d9; //#f2d0b0
   -moz-box-shadow: 0px 0px 8px rgba(9, 8, 9, 0.2);
   -webkit-box-shadow: 0px 0px 8px rgba(9, 8, 9, 0.2);
   box-shadow: 0px 0px 8px rgba(9, 8, 9, 0.2);
 }
 .news_wrapper .new_list ul.new_ul li:hover h4 {
-  color: #40A0D6;
+  color: #0232d9; //cb8a4d
 }
 .news_wrapper .new_list ul.new_ul li:hover .img img {
   -webkit-transform: scale(1.1);
@@ -4307,9 +4322,10 @@ p {
   line-height: 30px;
 }
 .news_detail_wrapper .news_detail_content .news_detail .text_cont img {
-  width: 100%!important;
-  margin: 35px auto;
+  // width: 100%!important;
+  margin: 30px auto;
   display: block;
+  max-width: 100%;
 }
 .news_detail_wrapper .news_detail_content .news_next_block {
   width: 32%;
