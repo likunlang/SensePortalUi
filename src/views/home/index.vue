@@ -2,7 +2,7 @@
   <div class="home_wrapper">
     <el-carousel arrow="always" trigger="click" height="100vh" :autoplay="true">
       <el-carousel-item v-for="(item, index) in bannerListData" :key="index">
-        <div class="banner-img-box" :style="`background-image: url(${item.img});`">
+        <div class="banner-img-box" v-lazy:background-image="`${item.img}`">
             <div class=" absolute bottom-[8%] sm:bottom-[10%] left-0 right-0 text-center md:px-8 sm:px-6 xs:px-4 ">
               <div>
                 <div class="flex justify-center">
@@ -126,7 +126,7 @@
         </div>
       </div>
     </div> -->
-    <div class="home_add_bg" :style="`background-image: url(${CDNUrl}/images/add_bg.png)`">
+    <div class="home_add_bg" v-lazy:background-image="`${CDNUrl}/images/add_bg.png`">
       <div class="home_strategy">
         <div class="sense_container bde-section-11-118 bde-section">
           <div class="title">
@@ -224,7 +224,7 @@
           </div> -->
           <Flex class="home_add" gap="large">
             <div class="item item1">
-              <img :src="`${CDNUrl}/images/str_img1.png`" alt="" class="bg">
+              <img v-lazy="`${CDNUrl}/images/str_img1.png`" alt="" class="bg">
               <!-- <h4 class="tit">
                 Economical
               </h4> -->
@@ -242,7 +242,7 @@
               </div>
             </div>
             <div class="item item2">
-              <img :src="`${CDNUrl}/images/str_img2.png`" alt="" class="bg">
+              <img v-lazy="`${CDNUrl}/images/str_img2.png`" alt="" class="bg">
               <!-- <h4 class="tit">
                 Efficient
               </h4> -->
@@ -260,7 +260,7 @@
               </div>
             </div>
             <div class="item item3">
-              <img :src="`${CDNUrl}/images/str_img3.png`" alt="" class="bg">
+              <img v-lazy="`${CDNUrl}/images/str_img3.png`" alt="" class="bg">
               <!-- <h4 class="tit">
                 Environmental Friendly
               </h4> -->
@@ -281,7 +281,7 @@
         </div>
       </div>
     </div>
-    <div class="home_center" :style="`background-image: url(${CDNUrl}/images/center_bg.png)`">
+    <div class="home_center" v-lazy:background-image="`${CDNUrl}/images/center_bg.png`">
       <div class="mask">
       </div>
       <div class="sense_container" id="about_us" style="position: relative;z-index: 999;">
@@ -407,29 +407,8 @@ function closeVideo() {
   videoSrc.value = "";
   showVideo.value = false;
 }
-function go(path: string) {
-  // path && router.push(path);
-}
-function renderList(list = []) {
-  const str = '../../../js';
-  return list.map(i => ({
-    ...i,
-    image: i.image.includes(str) ? i.image : str + i.image,
-  }))
-}
 function setSr() {
   const sr = scrollReveal();
-  sr.reveal('.new_center', {
-    reset: true,
-    distance: '60px',
-    duration: 1000,
-    origin: 'bottom',
-    easing: 'ease',
-    scale: 1,
-    opacity: 0,
-    delay: 100
-  });
-
 
   // sr.reveal('.home_center .li2', {
   //   reset: true,
@@ -461,16 +440,16 @@ function setSr() {
   //   opacity: 0,
   //   delay: 400
   // });
-  sr.reveal('.new_center', {
-    reset: true,
-    distance: '60px',
-    duration: 1000,
-    origin: 'bottom',
-    easing: 'ease',
-    scale: 1,
-    opacity: 0,
-    delay: 100
-  });
+  // sr.reveal('.new_center', {
+  //   reset: true,
+  //   distance: '60px',
+  //   duration: 1000,
+  //   origin: 'bottom',
+  //   easing: 'ease',
+  //   scale: 1,
+  //   opacity: 0,
+  //   delay: 100
+  // });
 
   // sr.reveal('.home_future .li1', {
   //   reset: true,
@@ -523,7 +502,7 @@ function setSr() {
   //   delay: 400
   // });
   sr.reveal('.home_add', {
-    reset: true,
+    reset: false,
     distance: '40px',
     duration: 500,
     origin: 'bottom',
@@ -532,26 +511,26 @@ function setSr() {
     opacity: 0,
     delay: 100
   });
-  sr.reveal('.home_center .title', {
-    reset: true,
-    distance: '40px',
-    duration: 300,
-    origin: 'bottom',
-    easing: 'ease',
-    scale: 1,
-    opacity: 0,
-    delay: 100
-  });
-  sr.reveal('.home_center p', {
-    reset: true,
-    distance: '20px',
-    duration: 400,
-    origin: 'bottom',
-    easing: 'ease',
-    scale: 1,
-    opacity: 0,
-    delay: 200
-  });
+  // sr.reveal('.home_center .title', {
+  //   reset: true,
+  //   distance: '40px',
+  //   duration: 300,
+  //   origin: 'bottom',
+  //   easing: 'ease',
+  //   scale: 1,
+  //   opacity: 0,
+  //   delay: 100
+  // });
+  // sr.reveal('.home_center p', {
+  //   reset: true,
+  //   distance: '20px',
+  //   duration: 400,
+  //   origin: 'bottom',
+  //   easing: 'ease',
+  //   scale: 1,
+  //   opacity: 0,
+  //   delay: 200
+  // });
 }
 </script>
 

@@ -10,10 +10,15 @@ import en from 'element-plus/dist/locale/en.mjs'
 import "element-plus/dist/index.css";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
+import VueLazyload from 'vue-lazyload'
 const app = createApp(App);
 // 实例化 Pinia
 
 app.use(router);
+app.use(VueLazyload, {
+  preLoad: 1.15,
+});
+
 setupStore(app);
 
 app.use(ElementPlus,{

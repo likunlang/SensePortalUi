@@ -12,10 +12,10 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "@vueuse/core": "^7.1.2",
-    "element-plus": "^2.3.7",
     "ant-design-vue": "^4.2.6",
     "axios": "^1.4.0",
     "dotenv": "^16.4.1",
+    "element-plus": "^2.3.7",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "lodash-es": "^4.17.21",
@@ -27,6 +27,7 @@
     "swiper": "^11.0.5",
     "tailwindcss": "^4.1.11",
     "vue": "^3.2.47",
+    "vue-lazyload": "^3.0.0",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {

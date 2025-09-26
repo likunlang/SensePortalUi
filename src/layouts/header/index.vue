@@ -47,10 +47,11 @@
             </li>
           </ul>
           <template v-for="(item, index) in menuTree" :key="index">
-            <ul :class="['sub_nav', mobileActiveMenu === index ? 'mm-opend' : '']">
-              <li @click="resetMenu">
+            <!-- <ul :class="['sub_nav', mobileActiveMenu === index ? 'mm-opend' : '']"> -->
+            <ul class="sub_nav">
+              <!-- <li @click="resetMenu">
                 <a class="mm-subclose">{{item.title}}</a>
-              </li>
+              </li> -->
               <li @click="mobileMenuClick(_item, index)" v-if='item.children?.length' v-for="(_item, _index) in item.children" :key="_index">
                 <a :class="[isActiveMenu(_item) ? 'active': '' ]">{{_item.title}}</a>
                 <ul class="thrid_nav" v-if="_item.children?.length">
