@@ -16,7 +16,7 @@ const app = createApp(App);
 
 app.use(router);
 app.use(VueLazyload, {
-  preLoad: 1.15,
+  preLoad: 1.11,
 });
 
 setupStore(app);
