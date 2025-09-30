@@ -9,10 +9,9 @@
 // import vehicle1_3 from '@/assets/newImages/vehicle1_3.jpg';
 // import vehicle1_4 from '@/assets/newImages/vehicle1_4.jpg';
 
-import { getEnv } from '@/utils/env';
+import { getAppEnvConfig } from '@/utils/env';
 
-export const CDNUrl = getEnv() === 'development' ? "https://pub-ef972d7a1bcc47888d714e9a2dd3c88b.r2.dev" : "https://assets.senseautos.com";
-// dev时  CDNUrl也可以用/resource
+const { CDN_URL } = getAppEnvConfig();
 
 export const menuTree = [
   // {
@@ -180,37 +179,37 @@ export const menuTree = [
 export const bannerListData = [
   {
     title: '轮播图5',
-    img: CDNUrl + '/images/banner_V9.png',
-    docUrl: CDNUrl + '/doc/V9.png',
-    videoUrl: CDNUrl + '/video/V9.mp4',
+    img: CDN_URL + '/resource/images/banner_V9.png',
+    docUrl: CDN_URL + '/resource/doc/V9.png',
+    videoUrl: CDN_URL + '/resource/video/V9.mp4',
     content: '',
   },
   {
     title: '轮播图4',
-    img: CDNUrl + '/images/banner_T.png',
-    docUrl: CDNUrl + '/doc/T.png',
-    videoUrl: CDNUrl + '/video/T.mp4',
+    img: CDN_URL + '/resource/images/banner_T.png',
+    docUrl: CDN_URL + '/resource/doc/T.png',
+    videoUrl: CDN_URL + '/resource/video/T.mp4',
     content: '',
   },
   {
     title: '轮播图2',
-    img: CDNUrl + '/images/banner_V5.png',
-    docUrl: CDNUrl + '/doc/V5.png',
-    videoUrl: CDNUrl + '/video/V5.mp4',
+    img: CDN_URL + '/resource/images/banner_V5.png',
+    docUrl: CDN_URL + '/resource/doc/V5.png',
+    videoUrl: CDN_URL + '/resource/video/V5.mp4',
     content: '',
   },
   {
     title: '轮播图3',
-    img: CDNUrl + '/images/banner_G050.png',
-    docUrl: CDNUrl + '/doc/G050.pdf',
-    videoUrl: CDNUrl + '/video/G050.mp4?v=1.0',
+    img: CDN_URL + '/resource/images/banner_G050.png',
+    docUrl: CDN_URL + '/resource/doc/G050.pdf',
+    videoUrl: CDN_URL + '/resource/video/G050.mp4?v=1.0',
     content: '',
   },
   {
     title: '轮播图1',
-    img: CDNUrl + '/images/banner_G105.png',
-    docUrl: CDNUrl + '/doc/G105.pdf',
-    videoUrl: CDNUrl + '/video/G105.mp4',
+    img: CDN_URL + '/resource/images/banner_G105.png',
+    docUrl: CDN_URL + '/resource/doc/G105.pdf',
+    videoUrl: CDN_URL + '/resource/video/G105.mp4',
     content: '',
   },
 ];

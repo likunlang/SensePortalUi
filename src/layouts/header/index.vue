@@ -2,7 +2,7 @@
   <div :class="['all_header', 'scroll_header']">
     <div class="sense_container header-container clearfix">
       <div class="logo" style="cursor: pointer;" @click="goHome">
-        <img :src="`${CDNUrl}/images/logo_header.png`" alt="logo">
+        <img :src="`${CDN_URL}/resource/images/logo_header.png`" alt="logo">
       </div>
       <div class="navigation">
         <ul class="first_nav clearfix" ref="navListRef" id="nav-list">
@@ -93,8 +93,10 @@ import searchIcon from '@/assets/images/search_icon.png';
 import router from '@/router';
 import { PAGE_NOT_FOUND_NAME, } from '@/router/constant';
 import { openPath, scrollToHash } from '@/utils';
-import { menuTree, CDNUrl } from '@/store/config';
+import { menuTree } from '@/store/config';
+import { getAppEnvConfig } from '@/utils/env';
 
+const { CDN_URL } = getAppEnvConfig();
 // import logoImg from '@/assets/newImages/logo_header.png';
 
 const scrollTop = ref(true);

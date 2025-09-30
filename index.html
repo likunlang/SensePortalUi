@@ -2,19 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="keywords" content="sense,motor,vehcle"/>
-    <meta name="title" content="Sense Motor"/>
+    <meta name="title" content="<%= title %>"/>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta content="no-cache" http-equiv="Pragma"/>
+    <meta name="keywords" content="sense,motor,vehcle"/>
     <meta name="description" content="sense motor portal"/>
-    <meta content="no-cache" http-equiv="Pragma"/><meta http-equiv="Expires" content="0"/>
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta http-equiv="Expires" content="0"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <title>SenseMotor</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <title><%= title %></title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
-    <script src="/resource/icons.js"></script>
+    <script src="<%= cdnPath %>/resource/js/icons.js"></script>
     <!-- <script type="module" src="/resource/rem.js"></script> -->
   </body>
 </html>

@@ -8,6 +8,7 @@ export function getAppEnvConfig() {
     VITE_GLOB_API_URL,
     VITE_GLOB_APP_SHORT_NAME,
     VITE_GLOB_API_URL_PREFIX,
+    VITE_CDN_DOMAIN,
   } = ENV;
 
   if (!/^[a-zA-Z\_]*$/.test(VITE_GLOB_APP_SHORT_NAME)) {
@@ -38,6 +39,7 @@ export function getAppEnvConfig() {
     urlPrefix: VITE_GLOB_API_URL_PREFIX,
     adminPath: adminPath,
     ctxAdminPath: ctxAdminPath,
+    CDN_URL: VITE_CDN_DOMAIN
   };
 }
 

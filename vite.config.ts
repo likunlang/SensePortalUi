@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from '@vant/auto-import-resolver';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import tailwindcss from '@tailwindcss/vite';
+import { createHtmlPlugin } from 'vite-plugin-html';
 
 const httpsRE = /^https:\/\//;
 
@@ -32,7 +33,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root);
   const viteEnv = wrapperEnv(env);
 
-  const { VITE_PROXY } = viteEnv;
+  const { VITE_PROXY, VITE_CDN_DOMAIN, VITE_GLOB_APP_TITLE } = viteEnv;
+  const cdnPath = VITE_CDN_DOMAIN;
 
   return {
     plugins: [
@@ -42,6 +44,16 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         resolvers: [VantResolver()],
       }),
       tailwindcss(),
+      createHtmlPlugin({
+        // minify: mode === 'production',
+        inject: {
+          // Inject data into ejs template
+          data: {
+            title: VITE_GLOB_APP_TITLE,
+            cdnPath,
+          },
+        },
+      })
     ],
     base: '/',
     server: {
