@@ -1,5 +1,5 @@
 <template>
-  <div :class="['all_header', 'scroll_header']">
+  <div :class="['all_header', 'scroll_header', isNewsPage ? 'newsPage' : '']">
     <div class="sense_container header-container clearfix">
       <div class="logo" style="cursor: pointer;" @click="goHome">
         <img :src="`${CDN_URL}/resource/images/logo_header.png`" alt="logo">
@@ -173,6 +173,8 @@ const svg_item_3 = [
 ]
 
 const currentFullPath = ref('/');
+
+const isNewsPage = ref(false);
 watch(
   () => router.currentRoute.value,
   (r) => {
@@ -185,6 +187,11 @@ watch(
       scrollTop.value = true;
     }
     currentFullPath.value = r?.fullPath;
+    if (currentFullPath.value.indexOf('news') > -1) {
+      isNewsPage.value = true;
+    } else {
+      isNewsPage.value = false;
+    }
   },
    { immediate: true, deep: true },
 )

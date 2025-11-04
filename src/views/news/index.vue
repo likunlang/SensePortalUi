@@ -14,10 +14,13 @@
                         {{ item.createDate }}
                       </p>
                     </div>
+                    <!-- <p class="date">
+                      {{ item.createDate }}
+                    </p> -->
                     <p class="cont">{{ item.description }}</p>
                   </div>
-                  <!-- <div class="img" :style="'background-image: url(' + item.image +')'"></div> -->
-                  <img v-if="item.image" class="img" :src="item.image.trim()" :onError="handleImgError" />
+                  <div class="img" :style="'background-image: url(' + item.image +')'"></div>
+                  <!-- <img v-if="item.image" class="img" :src="item.image.trim()" :onError="handleImgError" /> -->
                 </li>
               </ul>
               <Exception title="暂无数据" v-if="!loading && !listData?.length"/>

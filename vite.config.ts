@@ -59,7 +59,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       host: true,
       port: 3100,
-      open: true,
+      open: false,
       proxy: createProxy(VITE_PROXY),
     },
     resolve: {
