@@ -70,7 +70,7 @@ function handlePageChange(val: number){
   getNewsListData();
 };
 async function getNewsListData() {
-  // 降序排序
+  // 降序排序，权重越高越排前面
   const _newsListData = newsListData.sort((a, b) => b.weight - a.weight);
   try {
     loading.value = true;

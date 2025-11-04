@@ -51,7 +51,7 @@ async function getNewsDetail(id = '') {
 }
 
 function back(path: any) {
-  router.back();
+  router.push({ path: '/news' });
 }
 </script>
 

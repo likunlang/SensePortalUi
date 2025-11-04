@@ -237,7 +237,7 @@ export const vehiclesBanner = [
 ];
 export const newsListData = [
   {
-    id: '001',
+    id: '202511032002',
     title: 'SENSE eLCV Shines at Greek Logistics Expo, Star Products Attract Widespread Attention',
     description: 'Athens, October 18–20, 2025– The 10th edition of the “Supply Chain & Logistics” exhibition, alongside the 5th “Cargo Truck & Van Expo,” successfully convened in Athens, Greece, bringing together over 300 exhibitors from around the globe. A clear highlight of the event was new energy commercial vehicles, underscoring the growing industry shift toward clean-energy logistics solutions.',
     createDate: "2025-11-03 20:02",
