@@ -129,7 +129,7 @@ export function openPath(path: string) {
  * @param {array} listData mock数据（默认[]）
  * @returns {Promise} 包含分页数据的 Promise
  */
-export function mockPaginationApi(params) {
+export function mockPaginationFetch(params) {
   const { pageNo = 1, pageSize = 10, listData = [] } = params;
   return new Promise((resolve, reject) => {
     // 模拟网络延迟（50-200ms）

@@ -48,7 +48,7 @@
 import { ref, onMounted, computed, watch } from "vue";
 import router from "@/router";
 import { newsListData } from '@/store/config';
-import { mockPaginationApi } from '@/utils';
+import { mockPaginationFetch } from '@/utils';
 
 const total = ref(0);
 const pageNo = ref(1);
@@ -74,7 +74,7 @@ async function getNewsListData() {
   const _newsListData = newsListData.sort((a, b) => b.weight - a.weight);
   try {
     loading.value = true;
-    const res: any = await mockPaginationApi({
+    const res: any = await mockPaginationFetch({
       pageNo: pageNo.value,
       pageSize: pageSize.value,
       listData: _newsListData,

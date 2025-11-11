@@ -341,7 +341,6 @@ import router from "@/router";
 import scrollReveal from 'scrollreveal';
 import { useStore } from "@/store/user";
 import { cmsArticleListData } from '@/api/cms';
-import moment from 'moment';
 import { listToTree, findNode } from "@/utils/treeHelper";
 import { newsDetail } from '@/utils';
 import { Swiper, SwiperSlide } from 'swiper/vue';
