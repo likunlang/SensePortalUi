@@ -22,7 +22,7 @@
         </a>
       </div>
       <div class="flex lg:flex-col text-l text-light-300 md:flex md:flex-col md:items-center">
-        <p class="mr-2 lg:mr-0">
+        <p>
           Copyright © {{new Date().getFullYear()}} Sense Co.,Ltd
         </p>
       </div>
@@ -30,6 +30,11 @@
   </div>
 </template>
 <style lang="less" scoped>
+.footer-box {
+  > a {
+    flex: 1;
+  }
+}
 @media screen and (max-width: 1080px) {
   .footer-box {
     flex-direction: column !important;
