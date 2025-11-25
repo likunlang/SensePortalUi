@@ -6,24 +6,68 @@
             <div class=" absolute bottom-[8%] sm:bottom-[10%] left-0 right-0 text-center md:px-8 sm:px-6 xs:px-4 ">
               <div>
                 <div class="flex justify-center">
-                  <button class="
-                    outline-0
-                    h-8 rounded-[8px] text-base font-medium box-border
-                    transition-[background]
-                    duration-300
-                    bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
-                    mr-0 ml-0 
-                    px-2
-                    cursor-pointer
-                    flex items-center
-                    download-btn
-                    " style="margin-left: 0"
-                    @click="download(item)"
-                  >
-                    <svg class="sense-icon" aria-hidden="true">
-                      <use xlink:href="#sense-download"></use>
-                    </svg>
-                  </button>
+                  <template v-if="item.title== 'G050'">
+                    <button class="
+                        outline-0
+                        h-8 rounded-[8px] text-base font-medium box-border
+                        transition-[background]
+                        duration-300
+                        bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
+                        mr-0 ml-0 
+                        px-2
+                        cursor-pointer
+                        flex items-center
+                        download-btn
+                      "
+                      style="margin-left: 0"
+                      @click="download({ ...item, docUrl: item.docUrl })"
+                    >
+                      <span>G050L</span>
+                      <svg class="sense-icon" aria-hidden="true">
+                        <use xlink:href="#sense-download"></use>
+                      </svg>
+                    </button>
+                    <button class="
+                        outline-0
+                        h-8 rounded-[8px] text-base font-medium box-border
+                        transition-[background]
+                        duration-300
+                        bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
+                        mr-0 ml-6 
+                        px-2
+                        cursor-pointer
+                        flex items-center
+                        download-btn
+                      "
+                      @click="download({ ...item, docUrl: item.docUrl1 })"
+                    >
+                      <span>G050P-L(Pick up version)</span>
+                      <svg class="sense-icon" aria-hidden="true">
+                        <use xlink:href="#sense-download"></use>
+                      </svg>
+                    </button>
+                  </template>
+                  <template v-else>
+                    <button class="
+                        outline-0
+                        h-8 rounded-[8px] text-base font-medium box-border
+                        transition-[background]
+                        duration-300
+                        bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
+                        mr-0 ml-0 
+                        px-2
+                        cursor-pointer
+                        flex items-center
+                        download-btn
+                      "
+                      style="margin-left: 0"
+                      @click="download(item)"
+                    >
+                      <svg class="sense-icon" aria-hidden="true">
+                        <use xlink:href="#sense-download"></use>
+                      </svg>
+                    </button>
+                  </template>
                   
                   <button class="
                     outline-0
@@ -556,6 +600,10 @@ function setSr() {
       0 0 60px rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
     font-size: 1.3rem;
+    > span {
+      font-size: 1rem;
+      margin-right: 5px;
+    }
   }
   .download-btn:hover{
     // transform: scale(1.05);
