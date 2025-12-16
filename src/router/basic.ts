@@ -70,12 +70,21 @@ export const PAGES: AppRouteRecordRaw = {
         affix: true,
       },
     },
+    // {
+    //   path: '/news',
+    //   name: 'News',
+    //   component: () => import('@/views/news/index.vue'),
+    //   meta: {
+    //     title: 'News',
+    //     affix: true,
+    //   },
+    // },
     {
-      path: '/news',
-      name: 'News',
-      component: () => import('@/views/news/index.vue'),
+      path: '/why_electric',
+      name: 'Why',
+      component: () => import('@/views/whyElectric/index.vue'),
       meta: {
-        title: 'News',
+        title: 'Why',
         affix: true,
       },
     },

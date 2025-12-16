@@ -66,10 +66,12 @@
       </div>
       <div class="search">
         <div class="search-pc">
-          <a class="search-pc-item" href="javascript:;" @click="scrollBottom">
-            <el-icon class="search-pc-item-icon" size="20"><Message /></el-icon>
+          <a class="search-pc-item" href="javascript:;" @click='go({ "id": "A2009", "path": "/#contact_us" })'>
+            <svg class="sense-icon" aria-hidden="true">
+              <use xlink:href="#sense-email"></use>
+            </svg>
             <div class="search-pc-item-text">
-              Contact us
+              {{ t('index.common.contact')}}
             </div>
           </a>
         </div>
@@ -95,6 +97,8 @@ import { PAGE_NOT_FOUND_NAME, } from '@/router/constant';
 import { openPath, scrollToHash } from '@/utils';
 import { menuTree } from '@/store/config';
 import { getAppEnvConfig } from '@/utils/env';
+import { useI18n } from '@/locales/useI18n';
+const { t } = useI18n();
 
 const { CDN_URL } = getAppEnvConfig();
 // import logoImg from '@/assets/newImages/logo_header.png';
@@ -187,7 +191,7 @@ watch(
       scrollTop.value = true;
     }
     currentFullPath.value = r?.fullPath;
-    if (currentFullPath.value.indexOf('news') > -1) {
+    if (currentFullPath.value.indexOf('why_electric') > -1 || currentFullPath.value.indexOf('newsDetail') > -1) {
       isNewsPage.value = true;
     } else {
       isNewsPage.value = false;
@@ -341,7 +345,7 @@ function go(item: any) {
     // 当前页面hash跳转
     scrollToHash('#' + id);
   } 
-    openPath(path);
+  openPath(path);
 }
 function contactUs() {
   // console.log(1)

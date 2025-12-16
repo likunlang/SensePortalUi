@@ -176,7 +176,7 @@
           <div class="title">
             <p>
               <a href="javasctipt:;">
-                The New Era of New Energy Logistics is Here
+                {{ t('index.home.h1')}}
                 <!-- <span>
                   development strategy
                 </span> -->
@@ -274,10 +274,10 @@
               </h4> -->
               <div class="text_block">
                 <h4>
-                  Economical
+                  {{ t('index.home.h2')}}
                 </h4>
                 <p>
-                  Lower power and maintenance costs cut logistics fleet expenses
+                  {{ t('index.home.h2_sub')}}
                 </p>
                 <!-- <a href="javascript:;">
                   查看详情
@@ -292,10 +292,10 @@
               </h4> -->
               <div class="text_block">
                 <h4>
-                  Efficient
+                  {{ t('index.home.h3')}}
                 </h4>
                 <p>
-                  Improve operational efficiency Build a high-quality and efficient logistics system
+                  {{ t('index.home.h3_sub')}}
                 </p>
                 <!-- <a href="javascript:;">
                   查看详情
@@ -310,10 +310,10 @@
               </h4> -->
               <div class="text_block">
                 <h4>
-                  Environmental Friendly
+                  {{ t('index.home.h4')}}
                 </h4>
                 <p>
-                  Reduce emissions of carbon, nitrogen oxide, and particulate matter from vehicles to help achieve carbon neutrality
+                  {{ t('index.home.h4_sub')}}
                 </p>
                 <!-- <a href="javascript:;">
                   查看详情
@@ -332,21 +332,21 @@
         <div class="title">
           <p>
             <a href="javasctipt:;">
-              SenseMotor
-              <span class="text-white/80 pt-4">Pioneer in Electric Commercial Vehicle Solutions</span>
+              {{ t('index.home.h5')}}
+              <span class="text-white/80 pt-4">{{ t('index.home.h5_sub')}}</span>
             </a>
           </p>
         </div>
         <p class="text-white/70">
-          As the Exclusive Regional Official Representative for Dongfeng and Wuling New Energy Vehicles, SenseMotor delivers cutting -edge electric commercial vehicles and innovative logistics solutions throughout Central and Eastern Europe.
+          {{ t('index.home.h5_content_1')}}
         </p>
         <br />
         <p class="text-white/70">
-          Our comprehensive ecosystem integrates extensive distribution networks, dedicated technical support, seamless project delivery, and a reliable service station network for electric light trucks and vans.
+          {{ t('index.home.h5_content_2')}}
         </p>
         <br />
         <p class="text-white/70">
-          Operating in Poland, Hungary, Greece, and Romania, we empower sustainable logistics and optimize fleet efficiency, driving the future of clean transportation in the region.
+          {{ t('index.home.h5_content_3')}}
         </p>
       </div>
     </div>
@@ -368,6 +368,7 @@
       </div>
     </div>
   </div>
+  <Contact />
 </template>
 <script lang="ts">
   export default defineComponent({
@@ -395,7 +396,7 @@ import { bannerListData, newsListData } from "@/store/config";
 import { Flex } from "ant-design-vue";
 import { CaretRightFilled, DownloadOutlined } from '@ant-design/icons-vue';
 import { scrollToHash } from '@/utils';
-
+import Contact from './contact.vue';
 // import GroupBanner from '@/assets/images/group-banner.jpg';
 // import IVECO from '@/assets/newImages/IVECO-Drivers-Club.png';
 // import subBanner1 from '@/assets/newImages/str_img1.png';
@@ -405,6 +406,9 @@ import { scrollToHash } from '@/utils';
 // import SampleOil from '@/assets/newImages/sampleOil.png';
 import closeIcon from '@/assets/newImages/popup_close_button.png';
 import { getAppEnvConfig } from '@/utils/env';
+
+import { useI18n } from '@/locales/useI18n';
+const { t } = useI18n();
 
 const { CDN_URL } = getAppEnvConfig();
 

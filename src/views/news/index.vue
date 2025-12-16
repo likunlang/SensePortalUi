@@ -23,17 +23,17 @@
                   <!-- <img v-if="item.image" class="img" :src="item.image.trim()" :onError="handleImgError" /> -->
                 </li>
               </ul>
-              <Exception title="暂无数据" v-if="!loading && !listData?.length"/>
+              <Exception :title="t('index.common.empty')" v-if="!loading && !listData?.length"/>
               <!-- <Pagination @success="getListData" @loading="(l) => loading = l" /> -->
               <!-- 分页 -->
               <div class="pagination">
-                <el-pagination
-                  background
-                  v-model:current-age="pageNo"
-                  v-model:page-size="pageSize"
-                  layout="total, prev, pager, next"
+                <Pagination 
+                  v-model:current="pageNo"
                   :total="total"
-                  @current-change="handlePageChange"
+                  :pageSize="pageSize"
+                  :show-total="total => `${t('index.common.total')} ${total}`"
+                  show-less-items
+                  @change="handlePageChange" 
                 />
               </div>
             </div>
@@ -49,6 +49,10 @@ import { ref, onMounted, computed, watch } from "vue";
 import router from "@/router";
 import { newsListData } from '@/store/config';
 import { mockPaginationFetch } from '@/utils';
+import { useI18n } from '@/locales/useI18n';
+import { Pagination } from 'ant-design-vue';
+
+const { t } = useI18n();
 
 const total = ref(0);
 const pageNo = ref(1);
@@ -96,3 +100,8 @@ function newsDetail(item: any) {
   item?.id && router.push({ path: '/newsDetail', query: { id: item.id } });
 }
 </script>
+<style lang="less" scoped>
+ :deep(.ant-pagination .ant-pagination-total-text) {
+  line-height: 37px;
+ }
+</style>

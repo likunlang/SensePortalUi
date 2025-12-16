@@ -4,13 +4,13 @@
       <div class="second_page news_detail_content news_content fadeInUpSmall">
         <div class="news_container clearfix">
           <div style="margin-bottom: 20px">
-            <el-button type="primary" @click="back" :icon="ArrowLeft">Back</el-button>
+            <Button type="primary" @click="back">&lt;&nbsp;&nbsp;{{ t('index.common.back')}}</Button>
           </div>
           <div class="news_detail clearfix">
             <h4>{{ newsDetail?.title }}</h4>
             <div class="handle clearfix">
             <ul class="clearfix">
-              <li>Date：{{ newsDetail?.createDate }}</li>
+              <li>{{ t('index.common.date')}}：{{ newsDetail?.createDate }}</li>
             </ul>
             <!-- <ul class="clearfix author">
               <li>作者：{{ newsDetail?.authorName || newsDetail?.createBy }}</li>
@@ -33,7 +33,9 @@ import router from '@/router';
 import { ArrowLeft } from '@element-plus/icons-vue';
 import { watch, ref, nextTick } from 'vue';
 import { newsListData } from '@/store/config';
-
+import { useI18n } from '@/locales/useI18n';
+import { Button } from 'ant-design-vue';
+const { t } = useI18n();
 
 const newsDetail = ref<any>({});
 
@@ -51,7 +53,7 @@ async function getNewsDetail(id = '') {
 }
 
 function back(path: any) {
-  router.push({ path: '/news' });
+  router.back();
 }
 </script>
 
@@ -74,7 +76,7 @@ function back(path: any) {
   font-weight: 600;
   color: rgba(1, 33, 58, 100);
   font-size: 28px;
-  font-family: SourceHanSansSC-bold;
+  font-family: var(--font-open-sans);
 }
 .article-title-sub {
   /* color: rgba(176, 199, 217, 100); */
@@ -82,7 +84,7 @@ function back(path: any) {
   line-height: 14px;
   font-size: 16px;
   text-align: center;
-  font-family: SourceHanSansSC-regular;
+  font-family: var(--font-open-sans);
 }
 .dividing-line {
   width: calc(100% - 80px);
@@ -101,7 +103,7 @@ function back(path: any) {
   color: rgba(1, 33, 58, 100);
   font-size: 16px;
   text-align: left;
-  font-family: SourceHanSansSC-regular;
+  font-family: var(--font-open-sans);
 }
 .toggle-article {
   cursor: pointer;
@@ -109,13 +111,13 @@ function back(path: any) {
   color: #000;
   font-size: 16px;
   text-align: left;
-  font-family: SourceHanSansSC-regular;
+  font-family: var(--font-open-sans);
 }
 .toggle-article:hover {
   color: rgba(0, 131, 232, 100);
   font-size: 16px;
   text-align: left;
-  font-family: SourceHanSansSC-regular;
+  font-family: var(--font-open-sans);
 }
 .news-content {
   min-height: 100%;
@@ -138,8 +140,8 @@ function back(path: any) {
 .h-calc {
   height: calc(100% - 60px);
 }
-.ant-pagination {
-  font-size: 16px;
-  line-height: 16px;
-}
+// .ant-pagination {
+//   font-size: 16px;
+//   line-height: 16px;
+// }
 </style>

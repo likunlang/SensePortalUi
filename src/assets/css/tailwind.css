@@ -1109,7 +1109,9 @@
 .mb-8 {
     margin-bottom: 32px
 }
-
+.mb-\[30px\] {
+    margin-bottom: 30px;
+}
 .mb-\[0\.148rem\] {
     margin-bottom: .148rem
 }
@@ -6853,6 +6855,10 @@
     font-weight: 200
 }
 
+.\!font-light {
+    font-weight: 300!important
+}
+
 .font-medium {
     font-weight: 340
 }
@@ -6867,6 +6873,10 @@
 
 .font-semibold {
     font-weight: 520
+}
+
+.font-bold {
+    font-weight: 700
 }
 
 .\!leading-loose {
@@ -7657,7 +7667,6 @@ body,html {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: var(--font-family);
     font-weight: 330
 }
 

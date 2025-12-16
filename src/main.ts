@@ -9,6 +9,7 @@ import ElementPlus from "element-plus";
 import en from 'element-plus/dist/locale/en.mjs'
 import "element-plus/dist/index.css";
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+import { setupI18n } from '@/locales/setupI18n';
 
 import VueLazyload from 'vue-lazyload'
 const app = createApp(App);
@@ -20,6 +21,7 @@ app.use(VueLazyload, {
 });
 
 setupStore(app);
+setupI18n(app);
 
 app.use(ElementPlus,{
   locale: en,
