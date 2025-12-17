@@ -42,13 +42,13 @@
       <div class="latest-blog__container">
         <div class="latest-blog__header">
           <div class="latest-blog__title">
-          GETTING PLUGGED INTO ELECTRIC
+          Got 2 Minutes? Understand New Energy
           </div>
           <div class="latest-blog__description">
-          If you’re looking for more information, testimonials and support to help you decide to switch to our electric vans, read on!&nbsp;
+          Here is Your Fast-Charging Station for New Energy Vehicle Knowledge.&nbsp;
           </div>
         </div>
-        <div class="row row-cols-1 lg:row-cols-3 gx-5 max-lg:gap-y-[15px]">
+        <div class="row row-cols-1 lg:row-cols-3 gx-5 max-lg:gap-y-15px">
           <div class="col col-item" v-for="(item, index) in listData" :key="index">
             <div class="latest-blog__item">
               <div class="latest-blog__item-image" :style="'background-image: url(' + item.image +')'"></div>
@@ -458,7 +458,7 @@ function newsDetail(item: any) {
     flex: 0 0 auto;
     width: 33.333333333333336%
   }
-  .max-lg:gap-y-[15px] {
+  .max-lg:gap-y-15px {
     row-gap: 15px;
   }
 

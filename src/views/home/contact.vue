@@ -249,4 +249,14 @@ async function handleSubmit() {
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .contact_us_container {
+    .container_inner {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
 </style>

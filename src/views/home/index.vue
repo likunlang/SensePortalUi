@@ -337,15 +337,15 @@
             </a>
           </p>
         </div>
-        <p class="text-white/70">
+        <p class="text-white">
           {{ t('index.home.h5_content_1')}}
         </p>
         <br />
-        <p class="text-white/70">
+        <p class="text-white">
           {{ t('index.home.h5_content_2')}}
         </p>
         <br />
-        <p class="text-white/70">
+        <p class="text-white">
           {{ t('index.home.h5_content_3')}}
         </p>
       </div>
