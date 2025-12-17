@@ -19,6 +19,7 @@
             <div class="text_cont">
               <div id="articleContent_canvas_div">
                 <div v-html="newsDetail?.content"></div>
+                <MoreArticle :currentNews="newsDetail" />
               </div>
             </div>
           </div>
@@ -35,6 +36,8 @@ import { watch, ref, nextTick } from 'vue';
 import { newsListData } from '@/store/config';
 import { useI18n } from '@/locales/useI18n';
 import { Button } from 'ant-design-vue';
+import MoreArticle from './moreArticle.vue';
+
 const { t } = useI18n();
 
 const newsDetail = ref<any>({});

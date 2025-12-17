@@ -8,25 +8,25 @@
         <ul class="first_nav clearfix" ref="navListRef" id="nav-list">
           <li :class="['li_nav', isActiveMenu(item) ? 'active' : '']" v-for="(item, index) in menuTree" :key="index" >
             <a class="header-title" href="javascript:;" @click="go(item)" target="_self">
-              {{ item.title }}
+              {{ t(item.title) }}
             </a>
             <div class="second_nav" v-if="item.children?.length"  :style="{'padding-left': leftList[index+1]}">
               <div class="item" v-for="(i,j) in item.children" :key="j">
                 <template v-if="i.children?.length">
                   <h4>
-                    {{ i.title }}
+                    {{ t(i.title) }}
                   </h4>
                   <ul class="clearfix">
                     <li v-for="(_i,_j) in i.children" :key="_j">
                       <a  href="javascript:;" :class="[ isActiveMenu(_i) ? 'active' : '']"  @click="go(_i)">
-                        {{ _i.title }}
+                        {{ t(_i.title) }}
                       </a>
                     </li>
                   </ul>
                 </template>
                 <template v-else>
                   <h4>
-                    <a href="javascript:;" :class="[ isActiveMenu(i) ? 'active' : '']" @click="go(i)">{{ i.title }}</a>
+                    <a href="javascript:;" :class="[ isActiveMenu(i) ? 'active' : '']" @click="go(i)">{{ t(i.title) }}</a>
                   </h4>
                 </template>
               </div>

@@ -1,5 +1,6 @@
 <template>
-  <div id="contact_us" class="contact_us_container" :style="`background-image:url(${CDN_URL}/resource/news/news_20251216_10.png)`">
+  <div id="contact_us" class="contact_us_container">
+    <div class="mask_container" :style="`background-image:url(${CDN_URL}/resource/images/form-bg.png)`"></div>
     <div class="container_inner">
       <Result
         class="result-box"
@@ -195,11 +196,21 @@ async function handleSubmit() {
 <style lang="less" scoped>
 .contact_us_container {
   width: 100%;
-  background-size: cover;
-  background-position: 100% center;
   overflow: hidden;
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  .mask_container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-size: cover;
+    background-position: 100% center;
+    transform: scaleX(-1);
+  }
   :deep(.ant-form-item .ant-form-item-label >label) {
     // color: #fff;
     height: 40px;
