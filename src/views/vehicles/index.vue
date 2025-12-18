@@ -949,7 +949,7 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed, watch, defineComponent } from "vue";
 import router from "@/router";
-import { vehiclesBanner } from "@/store/config";
+// import { vehiclesBanner } from "@/store/config";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';

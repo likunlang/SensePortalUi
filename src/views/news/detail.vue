@@ -6,7 +6,8 @@
           <div style="margin-bottom: 20px">
             <Button type="primary" @click="back">&lt;&nbsp;&nbsp;{{ t('index.common.back')}}</Button>
           </div>
-          <div class="news_detail clearfix">
+          <Skeleton class="" active :paragraph="{ rows: 8 }" v-if="loading" />
+          <div class="news_detail clearfix" v-else>
             <h4>{{ newsDetail?.title }}</h4>
             <div class="handle clearfix">
             <ul class="clearfix">
@@ -33,30 +34,45 @@
 import router from '@/router';
 import { ArrowLeft } from '@element-plus/icons-vue';
 import { watch, ref, nextTick } from 'vue';
-import { newsListData } from '@/store/config';
 import { useI18n } from '@/locales/useI18n';
 import { Button } from 'ant-design-vue';
 import MoreArticle from './moreArticle.vue';
+import { getNewsDetail } from '@/api/news';
+import { message, Skeleton } from 'ant-design-vue';
 
 const { t } = useI18n();
 
 const newsDetail = ref<any>({});
-
+const loading = ref(false);
 watch(
   () => router.currentRoute.value,
   (r) => {
     const id: any = r?.query?.id;
-    id && getNewsDetail(id);
+    id && fetchDetail(id);
   },
   { immediate: true, deep: true }
 );
 
-async function getNewsDetail(id = '') {
-  newsDetail.value = newsListData.find(i => i.id === id) || {};
+async function fetchDetail(id) {
+  try {
+    loading.value = true;
+    const res = await getNewsDetail({ id });
+    if (res.code == 200) {
+      if (res.data) {
+        newsDetail.value = res.data;
+      } else if (res.message){
+        message.warning(res.message);
+      }
+    }
+  } catch (e) {
+    console.log(e);
+  } finally {
+    loading.value = false;
+  }
 }
 
 function back(path: any) {
-  router.back();
+  router.push({ path: 'why_electric' });
 }
 </script>
 

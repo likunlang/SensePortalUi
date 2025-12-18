@@ -26,10 +26,9 @@
 <script lang="ts" setup>
 import { ref, watch } from "vue";
 import router from "@/router";
-import { newsListData } from '@/store/config';
-import { getRandomItems } from '@/utils';
 import { useI18n } from '@/locales/useI18n';
 import type { PropType } from 'vue';
+import { getRandomListData } from '@/api/news';
 
 const { t } = useI18n();
 
@@ -46,9 +45,14 @@ watch(
   { immediate: true, deep: true }
 );
 async function getNewsListData() {
-  // 降序排序，权重越高越排前面
-  const _newsListData = newsListData.sort((a, b) => b.weight - a.weight);
-  randomNews.value = getRandomItems(_newsListData, props.currentNews);
+  try {
+    const res = await getRandomListData({ excludeId: props.currentNews.id });
+    if (res.code == 200) {
+      randomNews.value = res?.data?.list || [];
+    }
+  } catch (e) {
+    console.log(e);
+  }
 }
 function newsDetail(item: any) {
   item?.id && router.push({ path: '/newsDetail', query: { id: item.id } });

@@ -47,10 +47,10 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed, watch } from "vue";
 import router from "@/router";
-import { newsListData } from '@/store/config';
 import { mockPaginationFetch } from '@/utils';
 import { useI18n } from '@/locales/useI18n';
 import { Pagination } from 'ant-design-vue';
+import { getListData } from '@/api/news';
 
 const { t } = useI18n();
 
@@ -75,13 +75,11 @@ function handlePageChange(val: number){
 };
 async function getNewsListData() {
   // 降序排序，权重越高越排前面
-  const _newsListData = newsListData.sort((a, b) => b.weight - a.weight);
   try {
     loading.value = true;
     const res: any = await mockPaginationFetch({
       pageNo: pageNo.value,
       pageSize: pageSize.value,
-      listData: _newsListData,
     })
     if (res.code == 200) {
       listData.value = res?.data?.list || [];

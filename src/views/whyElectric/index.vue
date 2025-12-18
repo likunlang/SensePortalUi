@@ -48,7 +48,8 @@
           Here is Your Fast-Charging Station for New Energy Vehicle Knowledge.&nbsp;
           </div>
         </div>
-        <div class="row row-cols-1 lg:row-cols-3 gx-5 max-lg:gap-y-15px">
+        <Skeleton active :paragraph="{ rows: 8 }" v-if="loading" />
+        <div v-else class="row row-cols-1 lg:row-cols-3 gx-5 max-lg:gap-y-15px">
           <div class="col col-item" v-for="(item, index) in listData" :key="index">
             <div class="latest-blog__item">
               <div class="latest-blog__item-image" :style="'background-image: url(' + item.image +')'"></div>
@@ -68,10 +69,10 @@
 <script lang="ts" setup>
 import { ref, onMounted, computed, watch } from "vue";
 import router from "@/router";
-import { newsListData } from '@/store/config';
-import { mockPaginationFetch } from '@/utils';
 import { useI18n } from '@/locales/useI18n';
 import featured_img from '@/assets/newImages/featured_img.png';
+import { getListData } from '@/api/news';
+import { Skeleton } from 'ant-design-vue';
 
 const { t } = useI18n();
 
@@ -96,26 +97,26 @@ function handlePageChange(val: number){
   getNewsListData();
 };
 async function getNewsListData() {
-  // 降序排序，权重越高越排前面
-  const _newsListData = newsListData.sort((a, b) => b.weight - a.weight);
   try {
     loading.value = true;
-    const res: any = await mockPaginationFetch({
+    const res: any = await getListData({
       pageNo: pageNo.value,
       pageSize: pageSize.value,
-      listData: _newsListData,
     })
     if (res.code == 200) {
-      listData.value = [];
-      const temp = listData.value.find(i => i.id === '202511250918');
-      for (let i = 0; i < (res?.data?.list || []).length; i++) {
-        const item = res?.data?.list[i];
+      const list = res?.data?.list || [];
+      const arr = [];
+      const temp = list.find(i => i.id === '202511250918');
+      for (let i = 0; i < list.length; i++) {
+        const item = list[i];
         if (item.id === '202511250918') {
           headerItem.value = item;
         } else {
-          listData.value.push(item);
+          arr.push(item);
         }
       }
+      // 降序排序，权重越高越排前面
+      listData.value = arr.sort((a, b) => b.weight - a.weight);
       total.value = res?.data?.total || 0;
     }
     loading.value = false;

@@ -392,7 +392,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { bannerListData, newsListData } from "@/store/config";
+import { bannerListData } from "@/store/config";
 import { Flex } from "ant-design-vue";
 import { CaretRightFilled, DownloadOutlined } from '@ant-design/icons-vue';
 import { scrollToHash } from '@/utils';

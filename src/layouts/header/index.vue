@@ -41,7 +41,7 @@
           <ul :class="['fix_nav', showMobileNav ? 'mm-opend' : '', showMobileSubNav ? 'mm-sopend' : '']" id="mm-m0-p0">
             <li v-for="(item, index) in menuTree" :key="index" @click="mobileMenuClick(item, index)">
               <a :class="[isActiveMenu(item) ? 'active': '' ]">
-                {{ item.title }}
+                {{ t(item.title) }}
                 <span :class="[item.children?.length ? 'mm-subopen' : '']"></span>
               </a>
             </li>
@@ -53,10 +53,10 @@
                 <a class="mm-subclose">{{item.title}}</a>
               </li> -->
               <li @click="mobileMenuClick(_item, index)" v-if='item.children?.length' v-for="(_item, _index) in item.children" :key="_index">
-                <a :class="[isActiveMenu(_item) ? 'active': '' ]">{{_item.title}}</a>
+                <a :class="[isActiveMenu(_item) ? 'active': '' ]">{{ t(_item.title) }}</a>
                 <ul class="thrid_nav" v-if="_item.children?.length">
                   <li @click="mobileMenuClick(_ite, index)" v-for="(_ite, _ind) in _item.children" :key="_ind">
-                    <a :class="[isActiveMenu(_ite) ? 'active': '' ]">{{_ite.title}}</a>
+                    <a :class="[isActiveMenu(_ite) ? 'active': '' ]">{{ t(_ite.title) }}</a>
                   </li>
                 </ul>
               </li>
@@ -204,6 +204,9 @@ function isActiveMenu(item = {}) {
   const { path } = item;
   const arr = path.split('#');
   const pathName = arr[0];
+  if (window.location.pathname == '/newsDetail') {
+    return path === '/why_electric';
+  }
   if (pathName === '/') {
     return currentFullPath.value === path;
   } else {

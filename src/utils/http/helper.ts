@@ -1,4 +1,5 @@
 import { isObject, isString } from '@/utils/is';
+import { isDevMode } from '@/utils/env';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm';
 
@@ -7,15 +8,16 @@ export function joinTimestamp<T extends boolean>(
   restful: T,
 ): T extends true ? string : object;
 
+const isDev = isDevMode();
 export function joinTimestamp(join: boolean, restful = false): string | object {
   if (!join) {
     return restful ? '' : {};
   }
   const now = new Date().getTime();
   if (restful) {
-    return `?_t=${now}`;
+    return isDev ? `?_t=${now}&mode=dev` : `?_t=${now}`;
   }
-  return { _t: now };
+  return isDev ? { _t: now, mode: 'dev' } : { _t: now };
 }
 
 /**
