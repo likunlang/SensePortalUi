@@ -33,7 +33,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root);
   const viteEnv = wrapperEnv(env);
 
-  const { VITE_PROXY, VITE_CDN_DOMAIN, VITE_GLOB_APP_TITLE } = viteEnv;
+  const { VITE_PROXY, VITE_CDN_DOMAIN, VITE_GLOB_APP_TITLE, VITE_GLOB_BASE } = viteEnv;
   const cdnPath = VITE_CDN_DOMAIN;
 
   return {
@@ -55,12 +55,15 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         },
       })
     ],
-    base: '/',
+    base: VITE_GLOB_BASE,
     server: {
       host: true,
       port: 3100,
       open: false,
       proxy: createProxy(VITE_PROXY),
+    },
+    build: {
+      assetsInlineLimit: 4096,
     },
     resolve: {
       //别名配置，引用src路径下的东西可以通过@如：import Layout from '@/layout/index.vue'
