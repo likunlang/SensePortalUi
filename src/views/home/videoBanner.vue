@@ -4,7 +4,7 @@
       <div class="fullBannerContainer">
         <div class="videoContainer">
           <img 
-            src="/resource/images/video_poster.webp"
+            :src="`${CDN_URL}/resource/images/video_poster.webp`"
             class="videoPoster"
             fetchpriority="high"
           >
@@ -13,7 +13,7 @@
             loop
             autoplay
             playsinline
-            poster="/resource/images/video_poster.webp"
+            :poster="`${CDN_URL}/resource/images/video_poster.webp`"
             class="lazy index-module__video entered loaded"
             :src="`${CDN_URL}/resource/video/banner.mp4`"
             muted
@@ -55,7 +55,6 @@ const { CDN_URL } = getAppEnvConfig();
 const played = ref(false);
 
 function onPlay() {
-  console.log('onPlay')
   played.value = true;
 }
 </script>
