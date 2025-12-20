@@ -17,17 +17,19 @@
             class="lazy index-module__video entered loaded"
             :src="`${CDN_URL}/resource/video/banner.mp4`"
             muted
-            @play="onPlay"
+            @playing="onPlaying"
           >
           </video>
         </div>
       </div>
       <div class="module__center homeBgTitle">
         <div class="text-display title_font">
-          <div :class="['uppercase text-display-title', played ? 'fade-box' : '']">
-            <div class="big-text">Sense</div>
-            <div class="big-text-diver"></div>
-            <div class="big-text">Motor</div> 
+          <div :class="played ? 'fade-box' : ''">
+            <div :class="['uppercase text-display-title']">
+              <div class="big-text">Sense</div>
+              <div class="big-text-diver"></div>
+              <div class="big-text">Motor</div> 
+            </div>
           </div>
           <div class="text-display-sub-title-container">
             <div :class="['index-module__subTitle uppercase', played ? 'fade-box fade-box-2' : '']">
@@ -51,10 +53,9 @@ const TextArea = Input.TextArea;
 
 const { t } = useI18n();
 const { CDN_URL } = getAppEnvConfig();
-
 const played = ref(false);
 
-function onPlay() {
+function onPlaying() {
   played.value = true;
 }
 </script>
@@ -74,11 +75,12 @@ function onPlay() {
     height: 100%;
     position: relative;
     transition-property: transform;
+    background-color: #000;
   }
   .fade-box {
     opacity: 0; /* 初始状态 */
     animation-name: fadeIn; /* 应用动画 */
-    animation-duration: 0.1s; /* 动画时长1.5秒 */
+    animation-duration: 0.2s; /* 动画时长1.5秒 */
     animation-fill-mode: forwards; /* 动画结束后保持最后一帧 */
     animation-delay: 1s; /* 延时1秒执行 */
   }
@@ -89,11 +91,11 @@ function onPlay() {
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      // transform: translateX(-10vw);
+      transform: translateX(-10vw);
     }
     100% {
       opacity: 1;
-      // transform: translateX(0);
+      transform: translateX(0);
     }
   }
   .uppercase {
@@ -136,7 +138,7 @@ function onPlay() {
       text-align: center;
   }
   .homeBgTitle .text-display {
-    color: rgba(255, 255, 255, .7);
+    color: rgba(255, 255, 255, .65);
     width: auto
   }
   .homeBgTitle .text-display .text-display-title {
@@ -144,7 +146,7 @@ function onPlay() {
     font-weight: 700;
     font-size: 4rem;
     line-height: 120px;
-    transform: scaleY(1.5);
+    transform: scaleY(1.3);
     position: relative;
     top: -40px;
     text-shadow: 8px 2px 4px rgba(0, 0, 0, 0.5);

@@ -235,7 +235,6 @@ const videoSrc = ref('');
 
 onMounted(async () => {
   await nextTick();
-  await initPage();
   setTimeout(() => {
     setSr();
   }, 200);
@@ -244,9 +243,6 @@ onMounted(async () => {
     scrollToHash(hash);
   }
 })
-
-async function initPage() {
-}
 
 function download(item) {
   const { docUrl } = item;
