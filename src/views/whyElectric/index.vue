@@ -70,7 +70,7 @@
 import { ref, onMounted, computed, watch } from "vue";
 import router from "@/router";
 import { useI18n } from '@/locales/useI18n';
-import featured_img from '@/assets/newImages/featured_img.png';
+import featured_img from '@/assets/images/featured_img.png';
 import { getListData } from '@/api/news';
 import { Skeleton } from 'ant-design-vue';
 

@@ -1,6 +1,6 @@
 <template>
   <div id="contact_us" class="contact_us_container">
-    <div class="mask_container" :style="`background-image:url(${CDN_URL}/resource/images/form-bg.png)`"></div>
+    <div class="mask_container" :style="`background-image:url(${CDN_URL}/resource/images/form-bg.webp)`"></div>
     <div class="container_inner">
       <Result
         class="result-box"

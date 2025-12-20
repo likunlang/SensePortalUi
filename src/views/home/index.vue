@@ -1,5 +1,6 @@
 <template>
   <div class="home_wrapper">
+    <VideoBanner />
     <el-carousel arrow="always" trigger="click" height="100vh" :autoplay="true">
       <el-carousel-item v-for="(item, index) in bannerListData" :key="index">
         <div class="banner-img-box" v-lazy:background-image="`${item.img}`">
@@ -94,83 +95,7 @@
         </div>
       </el-carousel-item>
     </el-carousel>
-    <!-- <div class="home_news">
-      <div class="sense_container">
-        <div class="title">
-          <p>
-            <a href="javasctipt:;">
-              Green logistics, Drive Citylife Better
-              <span class="pt-4">
-                Lower costs,Less maintenance,Quieter operation,Smoother passage
-              </span>
-            </a>
-          </p>
-        </div>
-        <div class="contrast-box flex mt-10 w-full px-10">
-          <div class="contrast-l mt-8">
-            <div class="sample-box flex justify-end items-center">
-              <div class="sample-img">
-                <img class="inline-block " :src="SampleEv" />
-              </div>
-              <div class="sample-name">EV</div>
-            </div>
-            <div class="contrast-container flex flex-col items-end">
-              <div class="contrast-item text-right relative  flex items-center justify-end py-2 mb-8 mt-8 pr-4 w-20">
-                <span class="contrast-item-tips">€&nbsp;0.04</span>
-              </div>
-              <div class="contrast-item text-right relative  flex items-center justify-end py-2 mb-8 pr-4 w-80">
-                <span class="contrast-item-tips">Up to €&nbsp;8,&nbsp;000</span>
-              </div>
-              <div class="contrast-item text-right relative  flex items-center justify-end py-2 mb-8 pr-4 w-40">
-                <span class="contrast-item-tips">€&nbsp;250 per time</span>
-              </div>
-              <div class="contrast-item text-right relative  flex items-center justify-end py-2 mb-8 pr-4 w-60">
-                <span class="contrast-item-tips">64&nbsp;db</span>
-              </div>
-              <div class="contrast-item text-right relative  flex items-center justify-end py-2 mb-8 pr-4 w-95">
-                <span class="contrast-item-tips">Green Zone Access</span>
-              </div>
-            </div>
-          </div>
-          <div class="contrast-c mt-8 flex justify-start flex-col">
-            <div class="contrast-key flex items-center">VS</div>
-            <div class="contrast-item-container text-center px-4">
-              <div class="contrast-item-name flex items-center justify-center py-2 mb-8 mt-8">COST/KM</div>
-              <div class="contrast-item-name flex items-center justify-center py-2 mb-8">Car purchase subsidy</div>
-              <div class="contrast-item-name flex items-center justify-center py-2 mb-8">Maintenance cost</div>
-              <div class="contrast-item-name flex items-center justify-center py-2 mb-8">Noise intensity</div>
-              <div class="contrast-item-name flex items-center justify-center py-2 mb-8">City passage authority</div>
-            </div>
-          </div>
-          <div class="contrast-r mt-8">
-            <div class="sample-box flex justify-start items-center">
-              <div class="sample-name">DIESEL VEHICLE</div>
-              <div class="sample-img">
-                <img :src="SampleOil" />
-              </div>
-            </div>
-            <div class="contrast-container">
-              <div class="contrast-item text-left flex items-center justify-start relative py-2 mb-8 mt-8 pl-4  w-45">
-                <span class="contrast-item-tips">€&nbsp;0.35</span>
-              </div>
-              <div class="contrast-item text-left flex items-center justify-start relative py-2 mb-8 pl-4  w-25">
-                <span class="contrast-item-tips absolute overfllow-tips">Little to none</span>
-              </div>
-              <div class="contrast-item text-left flex items-center justify-start relative py-2 mb-8 pl-4 w-80">
-                <span class="contrast-item-tips">€&nbsp;400 per time</span>
-              </div>
-              <div class="contrast-item text-left flex items-center justify-start relative py-2 mb-8 pl-4 w-85">
-                <span class="contrast-item-tips">85&nbsp;db</span>
-              </div>
-              <div class="contrast-item text-left flex items-center justify-start relative py-2 mb-8 pl-4 w-45">
-                <span class="contrast-item-tips">Restricted</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="home_add_bg" v-lazy:background-image="`${CDN_URL}/resource/images/add_bg.png`">
+    <div class="home_add_bg" v-lazy:background-image="`${CDN_URL}/resource/images/add_bg.webp`">
       <div class="home_strategy">
         <div class="sense_container bde-section-11-118 bde-section">
           <div class="title">
@@ -183,95 +108,9 @@
               </a>
             </p>
           </div>
-          <!-- <div class="section-container">
-            <h2 class="bde-heading-11-119 bde-heading">
-              Services
-            </h2>
-            <div class="bde-button-11-157 bde-button">
-              <a class="breakdance-link button-atom button-atom--custom bde-button__button" href="#" target="_self" data-type="url">
-                <span class="button-atom__text">
-                  All services
-                </span>
-              </a>
-            </div>
-          </div> -->
-          <!-- <div class="flex flex-row lg:flex-col flex-wrap mt-10 items-end">
-            <div data-y="+=60" class="__gsap_viewport_trigger section3_item relative flex-1 min-w-[30%]  ml-6 mr-6 md:min-w-full lg:mb-6 md:mb-4 active"
-            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">
-              <picture class="flex justify-center aspect-[5/4]">
-                <source media="(max-width: 760px)" :srcset="subBanner1">
-                  <source media="(max-width: 1280px)" :srcset="subBanner1">
-                    <img class="w-full h-full object-cover" loading="lazy" :src="subBanner1" alt="cars">
-              </picture>
-              <div class="absolute top-[10%] left-0 right-0 flex flex-col items-center">
-                <p class="section3_item_title text-2xl md:text-lg text-white font-regular mb-8 md:mb-6 sm:mb-4">
-                  Economical
-                </p>
-                <button class="
-                outline-0
-                h-10 rounded-[8px] text-base font-medium box-border
-                transition-[background]
-                duration-300
-                hover:border-0
-                bg-transparent border-[1.5px] border-white text-white w-[256px] hover:bg-white md:hover:b hover:text-black
-                ">
-                  了解更多
-                </button>
-              </div>
-            </div>
-            <div data-y="+=60" class="__gsap_viewport_trigger section3_item relative flex-1 min-w-[30%] ml-6 mr-6 md:min-w-full lg:mb-6 md:mb-4 active"
-            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">
-              <picture class="flex justify-center aspect-[5/4]">
-                <source media="(max-width: 760px)" :srcset="subBanner2">
-                  <source media="(max-width: 1280px)" :srcset="subBanner2">
-                    <img class="w-full h-full object-cover" loading="lazy" :src="subBanner2" alt="cars">
-              </picture>
-              <div class="absolute top-[10%] left-0 right-0 flex flex-col items-center">
-                <p class="section3_item_title text-2xl md:text-lg text-white font-regular mb-8 md:mb-6 sm:mb-4">
-                  Efficient
-                </p>
-                <button class="
-                outline-0
-                h-10 rounded-[8px] text-base font-medium box-border
-                transition-[background]
-                duration-300
-                hover:border-0
-                bg-transparent border-[1.5px] border-white text-white w-[256px] hover:bg-white md:hover:b hover:text-black
-                ">
-                  了解更多
-                </button>
-              </div>
-            </div>
-            <div data-y="+=60" class="__gsap_viewport_trigger section3_item relative flex-1 min-w-[30%] ml-6 mr-6 md:min-w-full mt-6 lg:mt-0 lg:mb-6 md:mb-4"
-            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">
-              <picture class="flex justify-center aspect-[5/4]">
-                <source media="(max-width: 760px)" :srcset="subBanner3">
-                  <source media="(max-width: 1280px)" :srcset="subBanner3">
-                    <img class="w-full h-full object-cover" loading="lazy" :src="subBanner3" alt="cars">
-              </picture>
-              <div class="absolute top-[10%] left-0 right-0 flex flex-col items-center">
-                <p class="section3_item_title text-2xl md:text-lg text-white font-regular mb-8 md:mb-6 sm:mb-4">
-                  Environmental Friendly
-                </p>
-                <button class="
-                outline-0
-                h-10 rounded-[8px] text-base font-medium box-border
-                transition-[background]
-                duration-300
-                hover:border-0
-                bg-transparent border-[1.5px] border-white text-white w-[256px] hover:bg-white md:hover:b hover:text-black
-                ">
-                  了解更多
-                </button>
-              </div>
-            </div>
-          </div> -->
           <Flex class="home_add" gap="large">
             <div class="item item1">
-              <img v-lazy="`${CDN_URL}/resource/images/str_img1.png`" alt="" class="bg">
-              <!-- <h4 class="tit">
-                Economical
-              </h4> -->
+              <img v-lazy="`${CDN_URL}/resource/images/str_img1.webp`" alt="" class="bg">
               <div class="text_block">
                 <h4>
                   {{ t('index.home.h2')}}
@@ -279,17 +118,10 @@
                 <p>
                   {{ t('index.home.h2_sub')}}
                 </p>
-                <!-- <a href="javascript:;">
-                  查看详情
-                  <img src="@/assets/images/more_icon2.png" alt="">
-                </a> -->
               </div>
             </div>
             <div class="item item2">
-              <img v-lazy="`${CDN_URL}/resource/images/str_img2.png`" alt="" class="bg">
-              <!-- <h4 class="tit">
-                Efficient
-              </h4> -->
+              <img v-lazy="`${CDN_URL}/resource/images/str_img2.webp`" alt="" class="bg">
               <div class="text_block">
                 <h4>
                   {{ t('index.home.h3')}}
@@ -297,17 +129,10 @@
                 <p>
                   {{ t('index.home.h3_sub')}}
                 </p>
-                <!-- <a href="javascript:;">
-                  查看详情
-                  <img src="@/assets/images/more_icon2.png" alt="">
-                </a> -->
               </div>
             </div>
             <div class="item item3">
-              <img v-lazy="`${CDN_URL}/resource/images/str_img3.png`" alt="" class="bg">
-              <!-- <h4 class="tit">
-                Environmental Friendly
-              </h4> -->
+              <img v-lazy="`${CDN_URL}/resource/images/str_img3.webp`" alt="" class="bg">
               <div class="text_block">
                 <h4>
                   {{ t('index.home.h4')}}
@@ -315,17 +140,13 @@
                 <p>
                   {{ t('index.home.h4_sub')}}
                 </p>
-                <!-- <a href="javascript:;">
-                  查看详情
-                  <img src="@/assets/images/more_icon2.png" alt="">
-                </a> -->
               </div>
             </div>
           </Flex>
         </div>
       </div>
     </div>
-    <div class="home_center" v-lazy:background-image="`${CDN_URL}/resource/images/center_bg.png`">
+    <div class="home_center" v-lazy:background-image="`${CDN_URL}/resource/images/center_bg.webp`">
       <div class="mask">
       </div>
       <div class="sense_container" id="about_us" style="position: relative;z-index: 999;">
@@ -360,7 +181,7 @@
     <div class="w-full h-auto relative">
       <div>
         <div class="w-full h-auto flex items-center justify-center">
-          <video id="banner_video" style="width: 90vw" class="h-auto" controls="" playsinline=""
+          <video id="slide_video" style="width: 90vw" class="h-auto" controls="" playsinline=""
           disablepictureinpicture="" autoplay muted :poster="poster">
             <source :src="videoSrc" type="video/mp4">
           </video>
@@ -397,14 +218,9 @@ import { Flex } from "ant-design-vue";
 import { CaretRightFilled, DownloadOutlined } from '@ant-design/icons-vue';
 import { scrollToHash } from '@/utils';
 import Contact from './contact.vue';
-// import GroupBanner from '@/assets/images/group-banner.jpg';
-// import IVECO from '@/assets/newImages/IVECO-Drivers-Club.png';
-// import subBanner1 from '@/assets/newImages/str_img1.png';
-// import subBanner2 from '@/assets/newImages/str_img2.png';
-// import subBanner3 from '@/assets/newImages/str_img3.png';
-// import SampleEv from '@/assets/newImages/sampleEv.png';
-// import SampleOil from '@/assets/newImages/sampleOil.png';
-import closeIcon from '@/assets/newImages/popup_close_button.png';
+import VideoBanner from './videoBanner.vue';
+
+import closeIcon from '@/assets/images/popup_close_button.png';
 import { getAppEnvConfig } from '@/utils/env';
 
 import { useI18n } from '@/locales/useI18n';
@@ -449,7 +265,7 @@ function viewVideo(item) {
 }
 async function play() {
   await nextTick();
-  const video = document.getElementById('banner_video');
+  const video = document.getElementById('slide_video');
   video.play().catch(() => {});
 }
 function closeVideo() {
@@ -460,97 +276,6 @@ function closeVideo() {
 function setSr() {
   const sr = scrollReveal();
 
-  // sr.reveal('.home_center .li2', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 200
-  // });
-  // sr.reveal('.home_center .li3', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 300
-  // });
-  // sr.reveal('.home_center .li4', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 400
-  // });
-  // sr.reveal('.new_center', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 100
-  // });
-
-  // sr.reveal('.home_future .li1', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 100
-  // });
-  // sr.reveal('.home_future .li2', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 200
-  // });
-  // sr.reveal('.home_future .li3', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 300
-  // });
-  // sr.reveal('.home_future .li4', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 400
-  // });
-  // sr.reveal('.home_future .li5', {
-  //   reset: true,
-  //   distance: '60px',
-  //   duration: 1000,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 400
-  // });
   sr.reveal('.home_add', {
     reset: false,
     distance: '40px',
@@ -561,26 +286,6 @@ function setSr() {
     opacity: 0,
     delay: 100
   });
-  // sr.reveal('.home_center .title', {
-  //   reset: true,
-  //   distance: '40px',
-  //   duration: 300,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 100
-  // });
-  // sr.reveal('.home_center p', {
-  //   reset: true,
-  //   distance: '20px',
-  //   duration: 400,
-  //   origin: 'bottom',
-  //   easing: 'ease',
-  //   scale: 1,
-  //   opacity: 0,
-  //   delay: 200
-  // });
 }
 </script>
 

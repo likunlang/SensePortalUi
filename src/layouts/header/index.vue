@@ -2,7 +2,7 @@
   <div :class="['all_header', 'scroll_header', isNewsPage ? 'newsPage' : '']">
     <div class="sense_container header-container clearfix">
       <div class="logo" style="cursor: pointer;" @click="goHome">
-        <img :src="`${CDN_URL}/resource/images/logo_header.png`" alt="logo">
+        <img :src="`${CDN_URL}/resource/images/logo_header.webp`" alt="logo">
       </div>
       <div class="navigation">
         <ul class="first_nav clearfix" ref="navListRef" id="nav-list">
@@ -101,7 +101,6 @@ import { useI18n } from '@/locales/useI18n';
 const { t } = useI18n();
 
 const { CDN_URL } = getAppEnvConfig();
-// import logoImg from '@/assets/newImages/logo_header.png';
 
 const scrollTop = ref(true);
 const showSearch = ref(true);
