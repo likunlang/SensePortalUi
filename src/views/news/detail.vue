@@ -37,8 +37,12 @@ import { watch, ref, nextTick } from 'vue';
 import { useI18n } from '@/locales/useI18n';
 import { Button } from 'ant-design-vue';
 import MoreArticle from './moreArticle.vue';
-import { getNewsDetail } from '@/api/news';
+// import { getNewsDetail } from '@/api/news';
 import { message, Skeleton } from 'ant-design-vue';
+import getListDataDetail from '@/store/newsDetail';
+import { getAppEnvConfig } from '@/utils/env';
+
+const { CDN_URL } = getAppEnvConfig();
 
 const { t } = useI18n();
 
@@ -56,14 +60,9 @@ watch(
 async function fetchDetail(id) {
   try {
     loading.value = true;
-    const res = await getNewsDetail({ id });
-    if (res.code == 200) {
-      if (res.data) {
-        newsDetail.value = res.data;
-      } else if (res.message){
-        message.warning(res.message);
-      }
-    }
+    const arr = getListDataDetail(CDN_URL);
+    const detail = arr.find(i => i.id === id) || {};
+    newsDetail.value = detail;
   } catch (e) {
     console.log(e);
   } finally {

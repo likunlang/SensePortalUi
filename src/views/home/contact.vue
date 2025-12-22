@@ -1,6 +1,6 @@
 <template>
   <div id="contact_us" class="contact_us_container">
-    <div class="mask_container" :style="`background-image:url(${CDN_URL}/resource/images/form-bg.webp)`"></div>
+    <div class="mask_container" :style="`background-image:url(${CDN_URL}/resource/images/form-bg-new.webp)`"></div>
     <div class="container_inner">
       <Result
         class="result-box"
@@ -209,7 +209,7 @@ async function handleSubmit() {
     margin: auto;
     background-size: cover;
     background-position: 100% center;
-    transform: scaleX(-1);
+    // transform: scaleX(-1);
   }
   :deep(.ant-form-item .ant-form-item-label >label) {
     // color: #fff;

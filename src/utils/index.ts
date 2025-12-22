@@ -247,52 +247,44 @@ export class GoogleFormSubmitter {
     };
   }
 }
-export function getRandomItems(array, excludeItem, count = 3) {
-  // 参数验证
-  if (!Array.isArray(array)) {
-    throw new TypeError('第一个参数必须是数组');
-  }
-  
-  if (typeof count !== 'number' || count < 0) {
-    throw new TypeError('count 必须是非负整数');
-  }
-  
-  // 如果没有排除项，则使用空数组
-  if (excludeItem === undefined || excludeItem === null) {
-    excludeItem = undefined;
-  }
-  
-  // 如果数组为空，直接返回空数组
-  if (array.length === 0) {
-    return [];
-  }
-  
-  // 创建排除排除项后的新数组
-  const filteredArray = excludeItem !== undefined 
-    ? array.filter(item => item.id !== excludeItem.id)
-    : [...array]; // 如果没有排除项，使用完整数组
-  
-  // 如果过滤后数组为空，返回空数组
-  if (filteredArray.length === 0) {
-    return [];
-  }
-  
-  // 计算实际可返回的数量
-  const actualCount = Math.min(count, filteredArray.length);
-  
-  // 如果只需要返回0个，直接返回空数组
-  if (actualCount === 0) {
-    return [];
-  }
-  
-  // 如果只需要返回全部，则直接返回随机排序后的全部
-  if (actualCount === filteredArray.length) {
-    return [...filteredArray].sort(() => Math.random() - 0.5);
-  }
-  
-  // 随机排序
-  const shuffled = [...filteredArray].sort(() => Math.random() - 0.5);
-  
-  // 返回前 actualCount 项
-  return shuffled.slice(0, actualCount);
+export function getRandomItems(arr, excludeId, count = 3) {
+  try {
+    // 如果数组为空，直接返回空数组
+    if (arr.length === 0) {
+      return [];
+    }
+    
+    // 创建排除排除项后的新数组
+    const filteredArray = excludeId !== undefined 
+      ? arr.filter(item => {
+        const excludeIds = excludeId.split(',');
+        return !excludeIds.includes(item.id)
+      })
+      : [...arr]; // 如果没有排除项，使用完整数组
+    
+    // 如果过滤后数组为空，返回空数组
+    if (filteredArray.length === 0) {
+      return [];
+    }
+    
+    // 计算实际可返回的数量
+    const actualCount = Math.min(count, filteredArray.length);
+    
+    // 如果只需要返回0个，直接返回空数组
+    if (actualCount === 0) {
+      return [];
+    }
+    
+    // 如果只需要返回全部，则直接返回随机排序后的全部
+    if (actualCount === filteredArray.length) {
+      return [...filteredArray].sort(() => Math.random() - 0.5);
+    }
+    
+    // 随机排序
+    const shuffled = [...filteredArray].sort(() => Math.random() - 0.5);
+    
+    // 返回前 actualCount 项
+    return shuffled.slice(0, actualCount);
+  } catch (e) {}
+
 }

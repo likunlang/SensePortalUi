@@ -71,8 +71,13 @@ import { ref, onMounted, computed, watch } from "vue";
 import router from "@/router";
 import { useI18n } from '@/locales/useI18n';
 import featured_img from '@/assets/images/featured_img.png';
-import { getListData } from '@/api/news';
+// import { getListData } from '@/api/news';
 import { Skeleton } from 'ant-design-vue';
+import { getAppEnvConfig } from '@/utils/env';
+import getListData from '@/store/newsListData';
+import { mockPaginationFetch } from '@/utils';
+
+const { CDN_URL } = getAppEnvConfig();
 
 const { t } = useI18n();
 
@@ -92,16 +97,15 @@ watch(
   },
   { immediate: true, deep: true }
 );
-function handlePageChange(val: number){
-  pageNo.value = val;
-  getNewsListData();
-};
 async function getNewsListData() {
   try {
     loading.value = true;
-    const res: any = await getListData({
+    // 降序排序，权重越高越排前面
+    const arr = getListData(CDN_URL);
+    const res: any = await mockPaginationFetch({
       pageNo: pageNo.value,
       pageSize: pageSize.value,
+      listData: arr,
     })
     if (res.code == 200) {
       const list = res?.data?.list || [];
@@ -121,7 +125,7 @@ async function getNewsListData() {
     }
     loading.value = false;
   } catch (err) {
-    // console.log(err);
+    console.log(err);
     loading.value = false;
   }
 }

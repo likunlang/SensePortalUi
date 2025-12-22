@@ -26,9 +26,21 @@
         <div class="text-display title_font">
           <div :class="played ? 'fade-box' : ''">
             <div :class="['uppercase text-display-title']">
-              <div class="big-text">Sense</div>
+              <div class="big-text-box">
+                <div class="big-text">S</div>
+                <div class="big-text">e</div>
+                <div class="big-text">n</div>
+                <div class="big-text">s</div>
+                <div class="big-text">e</div>
+              </div>
               <div class="big-text-diver"></div>
-              <div class="big-text">Motor</div> 
+              <div class="big-text-box">
+                <div class="big-text">M</div> 
+                <div class="big-text">o</div> 
+                <div class="big-text">t</div> 
+                <div class="big-text">o</div> 
+                <div class="big-text">r</div> 
+              </div>
             </div>
           </div>
           <div class="text-display-sub-title-container">
@@ -153,12 +165,14 @@ function onPlaying() {
     display: flex;
     justify-content: space-between;
   }
-
-  .big-text-diver {
-    flex:1;
+  .big-text-box {
+    display: flex;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
   }
-  .big-text {
-    letter-spacing: 2.6vw;
+  .big-text-diver {
+    width: 7vw;
   }
 
   .index-module__subTitle {
@@ -188,8 +202,8 @@ function onPlaying() {
       font-weight: 700;
       line-height: 3.75rem;
     }
-    .big-text {
-      letter-spacing: 4vw;
+    .big-text-diver {
+      width: 7vw;
     }
     .index-module__subTitle {
       white-space: pre-line;
@@ -200,11 +214,8 @@ function onPlaying() {
     .homeBgTitle .text-display .text-display-title {
       font-size: 2.8rem;
     }
-    .big-text {
-      letter-spacing: 3vw;
-    }
     .big-text-diver {
-      display: none;
+      width: 6vw;
     }
     .index-module__subTitle {
       white-space: pre-line;
@@ -215,8 +226,8 @@ function onPlaying() {
     .homeBgTitle .text-display .text-display-title {
       font-size: 2.3rem;
     }
-    .big-text {
-      letter-spacing: 2vw;
+    .big-text-diver {
+      width: 5vw;
     }
   }
   @media screen and (max-width: 375px) {
