@@ -1,100 +1,7 @@
 <template>
   <div class="home_wrapper">
     <VideoBanner />
-    <el-carousel arrow="always" trigger="click" height="100vh" :autoplay="true">
-      <el-carousel-item v-for="(item, index) in bannerListData" :key="index">
-        <div class="banner-img-box" v-lazy:background-image="`${item.img}`">
-            <div class=" absolute bottom-[8%] sm:bottom-[10%] left-0 right-0 text-center md:px-8 sm:px-6 xs:px-4 ">
-              <div>
-                <div class="flex justify-center">
-                  <template v-if="item.title== 'G050'">
-                    <button class="
-                        outline-0
-                        h-8 rounded-[8px] text-base font-medium box-border
-                        transition-[background]
-                        duration-300
-                        bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
-                        mr-0 ml-0 
-                        px-2
-                        cursor-pointer
-                        flex items-center
-                        download-btn
-                      "
-                      style="margin-left: 0"
-                      @click="download({ ...item, docUrl: item.docUrl })"
-                    >
-                      <span>G050L</span>
-                      <svg class="sense-icon" aria-hidden="true">
-                        <use xlink:href="#sense-download"></use>
-                      </svg>
-                    </button>
-                    <button class="
-                        outline-0
-                        h-8 rounded-[8px] text-base font-medium box-border
-                        transition-[background]
-                        duration-300
-                        bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
-                        mr-0 ml-6 
-                        px-2
-                        cursor-pointer
-                        flex items-center
-                        download-btn
-                      "
-                      @click="download({ ...item, docUrl: item.docUrl1 })"
-                    >
-                      <span>G050P-L(Pick up version)</span>
-                      <svg class="sense-icon" aria-hidden="true">
-                        <use xlink:href="#sense-download"></use>
-                      </svg>
-                    </button>
-                  </template>
-                  <template v-else>
-                    <button class="
-                        outline-0
-                        h-8 rounded-[8px] text-base font-medium box-border
-                        transition-[background]
-                        duration-300
-                        bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
-                        mr-0 ml-0 
-                        px-2
-                        cursor-pointer
-                        flex items-center
-                        download-btn
-                      "
-                      style="margin-left: 0"
-                      @click="download(item)"
-                    >
-                      <svg class="sense-icon" aria-hidden="true">
-                        <use xlink:href="#sense-download"></use>
-                      </svg>
-                    </button>
-                  </template>
-                  
-                  <button class="
-                    outline-0
-                    h-8 rounded-[8px] text-base font-medium box-border
-                    transition-[background]
-                    duration-300
-                    bg-transparent border-[1px] border-white text-white hover:bg-white md:hover:b hover:text-black
-                    mr-0 ml-6 
-                    px-2
-                    cursor-pointer
-                    flex items-center
-                    download-btn
-                    "
-                    v-if="item.videoUrl"
-                    @click="viewVideo(item)"
-                  >
-                    <svg class="sense-icon" aria-hidden="true">
-                      <use xlink:href="#sense-caret-right"></use>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-        </div>
-      </el-carousel-item>
-    </el-carousel>
+    <ProductsSwiper />
     <div class="home_add_bg" v-lazy:background-image="`${CDN_URL}/resource/images/add_bg.webp`">
       <div class="home_strategy">
         <div class="sense_container bde-section-11-118 bde-section">
@@ -146,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="home_center" v-lazy:background-image="`${CDN_URL}/resource/images/center_bg.webp`">
+    <!-- <div class="home_center" v-lazy:background-image="`${CDN_URL}/resource/images/center_bg.webp`">
       <div class="mask">
       </div>
       <div class="sense_container" id="about_us" style="position: relative;z-index: 999;">
@@ -170,34 +77,13 @@
           {{ t('index.home.h5_content_3')}}
         </p>
       </div>
-    </div>
-  </div>
-  
-  <div v-if="showVideo" class="fixed top-[0px] left-[0px] bottom-[0px] right-[0px] bg-[#000] bg-opacity-90 flex items-center justify-center z-[10002]">
-    <div @click="closeVideo" class="pop-up__close-button-wrapper absolute top-4 right-4 p-3 cursor-pointer bg-light-400 rounded-full z-10 hover:bg-light-430">
-      <button class="w-5 h-5" :style="'display: block; background: url('+ closeIcon +') center center / cover;'">
-      </button>
-    </div>
-    <div class="w-full h-auto relative">
-      <div>
-        <div class="w-full h-auto flex items-center justify-center">
-          <video id="slide_video" style="width: 90vw" class="h-auto" controls="" playsinline=""
-          disablepictureinpicture="" autoplay muted :poster="poster">
-            <source :src="videoSrc" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
+    </div> -->
   </div>
   <Contact />
 </template>
 <script lang="ts">
   export default defineComponent({
     name: 'HOME_PAGE',
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
   });
 </script>
 <script lang="ts" setup>
@@ -208,30 +94,19 @@ import scrollReveal from 'scrollreveal';
 import { useStore } from "@/store/user";
 import { cmsArticleListData } from '@/api/cms';
 import { listToTree, findNode } from "@/utils/treeHelper";
-import { newsDetail } from '@/utils';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { bannerListData } from "@/store/config";
 import { Flex } from "ant-design-vue";
 import { CaretRightFilled, DownloadOutlined } from '@ant-design/icons-vue';
 import { scrollToHash } from '@/utils';
-import Contact from './contact.vue';
-import VideoBanner from './videoBanner.vue';
+import Contact from './components/contact.vue';
+import VideoBanner from './components/videoBanner.vue';
+import ProductsSwiper from './components/productsSwiper.vue';
 
-import closeIcon from '@/assets/images/popup_close_button.png';
 import { getAppEnvConfig } from '@/utils/env';
 
 import { useI18n } from '@/locales/useI18n';
 const { t } = useI18n();
 
 const { CDN_URL } = getAppEnvConfig();
-
-const modules = [Pagination];
-const showVideo = ref(false);
-const poster = ref('');
-const videoSrc = ref('');
 
 onMounted(async () => {
   await nextTick();
@@ -243,32 +118,6 @@ onMounted(async () => {
     scrollToHash(hash);
   }
 })
-
-function download(item) {
-  const { docUrl } = item;
-  docUrl && window.open(docUrl);
-}
-function viewVideo(item) {
-  const { img, videoUrl } = item;
-  if (img && videoUrl) {
-    poster.value = img;
-    videoSrc.value = videoUrl;
-    showVideo.value = true;
-    setTimeout(() => {
-      play();
-    }, 1500);
-  } 
-}
-async function play() {
-  await nextTick();
-  const video = document.getElementById('slide_video');
-  video.play().catch(() => {});
-}
-function closeVideo() {
-  poster.value = "";
-  videoSrc.value = "";
-  showVideo.value = false;
-}
 function setSr() {
   const sr = scrollReveal();
 

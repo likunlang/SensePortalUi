@@ -4,6 +4,7 @@ export default {
     news: '新闻',
     why: '为什么',
     about: '关于我们',
+    product: '产品'
   },
   common: {
     download: '下载',

@@ -39,7 +39,7 @@ import { Button } from 'ant-design-vue';
 import MoreArticle from './moreArticle.vue';
 // import { getNewsDetail } from '@/api/news';
 import { message, Skeleton } from 'ant-design-vue';
-import getListDataDetail from '@/store/newsDetail';
+import listDataDetail from '@/store/newsDetail';
 import { getAppEnvConfig } from '@/utils/env';
 
 const { CDN_URL } = getAppEnvConfig();
@@ -60,8 +60,7 @@ watch(
 async function fetchDetail(id) {
   try {
     loading.value = true;
-    const arr = getListDataDetail(CDN_URL);
-    const detail = arr.find(i => i.id === id) || {};
+    const detail = listDataDetail.find(i => i.id === id) || {};
     newsDetail.value = detail;
   } catch (e) {
     console.log(e);

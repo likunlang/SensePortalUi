@@ -98,11 +98,20 @@ export const PAGES: AppRouteRecordRaw = {
       },
     },
     {
-      path: '/vehicles',
-      name: 'Vehicles',
-      component: () => import('@/views/vehicles/index.vue'),
+      path: '/product',
+      name: 'Product',
+      component: () => import('@/views/product/index.vue'),
       meta: {
-        title: 'Vehicles',
+        title: 'Product',
+        affix: true,
+      },
+    },
+    {
+      path: '/aboutus',
+      name: 'Aboutus',
+      component: () => import('@/views/aboutus/index.vue'),
+      meta: {
+        title: 'Aboutus',
         affix: true,
       },
     },

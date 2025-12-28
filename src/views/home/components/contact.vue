@@ -1,6 +1,6 @@
 <template>
   <div id="contact_us" class="contact_us_container">
-    <div class="mask_container" :style="`background-image:url(${CDN_URL}/resource/images/form-bg-new.webp)`"></div>
+    <div class="mask_container" v-lazy:background-image="formBg"></div>
     <div class="container_inner">
       <Result
         class="result-box"
@@ -74,7 +74,7 @@
 <script lang="ts" setup>
 import { useI18n } from '@/locales/useI18n';
 import { getAppEnvConfig } from '@/utils/env';
-import { reactive, ref, nextTick } from 'vue';
+import { reactive, ref, nextTick, computed } from 'vue';
 import { Input, Form, Row, Col, Select, Button, Result, Spin, message } from 'ant-design-vue';
 import { GoogleFormSubmitter } from '@/utils';
 
@@ -82,6 +82,12 @@ const TextArea = Input.TextArea;
 
 const { t } = useI18n();
 const { CDN_URL } = getAppEnvConfig();
+
+const props = defineProps({
+  bg: { type: String, default: '' },
+})
+
+const formBg = computed(() => props.bg || `${CDN_URL}/resource/images/form-bg-new.webp`);
 
 const url = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScvyebmXehzl_ZEe1Q_K0oh18NrickuudeUt-htYfehDStn6w/formResponse';
 

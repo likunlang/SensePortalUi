@@ -52,7 +52,7 @@
         <div v-else class="row row-cols-1 lg:row-cols-3 gx-5 max-lg:gap-y-15px">
           <div class="col col-item" v-for="(item, index) in listData" :key="index">
             <div class="latest-blog__item">
-              <div class="latest-blog__item-image" :style="'background-image: url(' + item.image +')'"></div>
+              <div class="latest-blog__item-image" v-lazy:background-image="item.image"></div>
               <!-- <img :alt="item.title" loading="lazy" width="440" height="475" decoding="async" class="latest-blog__item-image" style="color:transparent" :src="item.image" /> -->
               <!-- <div class="latest-blog__item-badge"></div> -->
               <div class="latest-blog__item-title">{{ item.title }}</div>
@@ -71,13 +71,9 @@ import { ref, onMounted, computed, watch } from "vue";
 import router from "@/router";
 import { useI18n } from '@/locales/useI18n';
 import featured_img from '@/assets/images/featured_img.png';
-// import { getListData } from '@/api/news';
 import { Skeleton } from 'ant-design-vue';
-import { getAppEnvConfig } from '@/utils/env';
-import getListData from '@/store/newsListData';
+import newsListData from '@/store/newsListData';
 import { mockPaginationFetch } from '@/utils';
-
-const { CDN_URL } = getAppEnvConfig();
 
 const { t } = useI18n();
 
@@ -101,11 +97,10 @@ async function getNewsListData() {
   try {
     loading.value = true;
     // 降序排序，权重越高越排前面
-    const arr = getListData(CDN_URL);
     const res: any = await mockPaginationFetch({
       pageNo: pageNo.value,
       pageSize: pageSize.value,
-      listData: arr,
+      listData: newsListData,
     })
     if (res.code == 200) {
       const list = res?.data?.list || [];

@@ -1,4 +1,7 @@
-export default (CDN_URL) => ([
+import { getAppEnvConfig } from '@/utils/env';
+const { CDN_URL } = getAppEnvConfig();
+
+export default [
   {
     id: '202512162057',
     title: 'Worried about significant battery loss in winter for new energy vehicles? This article reveals the truth.',
@@ -47,4 +50,4 @@ export default (CDN_URL) => ([
     image: CDN_URL + '/resource/news/news_G050.webp',
     weight: 999,
   },
-]);
+];

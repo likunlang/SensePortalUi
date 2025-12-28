@@ -28,12 +28,9 @@ import { ref, watch } from "vue";
 import router from "@/router";
 import { useI18n } from '@/locales/useI18n';
 import type { PropType } from 'vue';
-import { getAppEnvConfig } from '@/utils/env';
-import getListData from '@/store/newsListData';
+import newstListData from '@/store/newsListData';
 // import { getRandomListData } from '@/api/news';
 import { getRandomItems } from '@/utils';
-
-const { CDN_URL } = getAppEnvConfig();
 
 const { t } = useI18n();
 
@@ -51,9 +48,8 @@ watch(
 );
 async function getNewsListData() {
   try {
-    const arr = getListData(CDN_URL);
     const excludeId = props.currentNews.id;
-    randomNews.value = getRandomItems(arr, excludeId);
+    randomNews.value = getRandomItems(newstListData, excludeId);
   } catch (e) {
     console.log(e);
   }

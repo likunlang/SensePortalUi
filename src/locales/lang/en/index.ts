@@ -4,6 +4,7 @@ export default {
     news: 'News',
     why: 'Why Electric',
     about: 'About Us',
+    products: 'Products'
   },
   common: {
     download: 'download',
