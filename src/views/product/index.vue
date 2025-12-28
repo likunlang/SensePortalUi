@@ -23,7 +23,7 @@
       <img v-lazy="productDetail.infoTable" />
     </div>
     <ContactForm :bg="productDetail.formImg" />
-    <div v-show="showVideo" class="fixed top-[0px] left-[0px] bottom-[0px] right-[0px] bg-[#000] bg-opacity-90 flex items-center justify-center z-[10002]">
+    <div v-if="showVideo" class="fixed top-[0px] left-[0px] bottom-[0px] right-[0px] bg-[#000] bg-opacity-90 flex items-center justify-center z-[10002]">
       <div @click="closeVideo" class="pop-up__close-button-wrapper absolute top-4 right-4 p-3 cursor-pointer bg-light-400 rounded-full z-10 hover:bg-light-430">
         <button class="w-5 h-5" :style="'display: block; background: url('+ closeIcon +') center center / cover;'"></button>
       </div>

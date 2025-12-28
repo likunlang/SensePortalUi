@@ -34,7 +34,12 @@
         <div class="inset">
           <a href="javascript:;" @click="productDetail(item)">
             <span class="thumb">
-              <img class="responsive-image" v-lazy="`${item.slideImg}`">
+              <img class="responsive-image" v-lazy="{
+                  src: `${item.slideImg}`,
+                  loading: loadingImg,
+                  error: loadingImg
+                }"
+              />
             </span>
             <span class="strapline">
               <span>
@@ -61,7 +66,7 @@
                 <span class="weight has-icon" v-else>
                   <span class="label">Size：{{ item.size }}</span>
                 </span>
-                <span class="weight has-icon">
+                <span class="weight has-icon" v-if="item.GVW">
                   <span class="label"> GVW：{{ item.GVW }} </span>
                 </span>
                 <span class="volume has-icon">
@@ -92,7 +97,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 
 import { Pagination, Navigation } from 'swiper/modules';
 import { Button } from 'ant-design-vue';
-
+import loadingImg from '@/store/loadingImg';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
