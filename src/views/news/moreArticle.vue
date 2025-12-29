@@ -11,7 +11,14 @@
         <div class="row row-cols-1 lg:row-cols-3 gx-5 max-lg:gap-y-15px">
           <div class="col col-item" v-for="(item, index) in randomNews" :key="index">
             <div class="latest-blog__item">
-              <div class="latest-blog__item-image" :style="'background-image: url(' + item.image +')'"></div>
+              <div
+                class="latest-blog__item-image"
+                v-lazy:background-image="{
+                  src: item.image,
+                  loading: loadingImg,
+                  error: loadingImg
+                }"
+              ></div>
               <div class="latest-blog__item-title">{{ item.title }}</div>
               <div class="latest-blog__item-gradient-line"></div>
               <a href="javascript:;" @click="newsDetail(item)" class="latest-blog__item-link"></a>
@@ -31,6 +38,7 @@ import type { PropType } from 'vue';
 import newstListData from '@/store/newsListData';
 // import { getRandomListData } from '@/api/news';
 import { getRandomItems } from '@/utils';
+import loadingImg from '@/store/loadingImg';
 
 const { t } = useI18n();
 

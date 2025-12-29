@@ -23,7 +23,7 @@
         <div class="left-column order-2 lg:order-1">
         <div class="img-with-text__content">
           <div class="img-with-text__icon">
-            <img alt="Icon" loading="lazy" width="70" height="70" decoding="async" style="color:transparent" :src="featured_img" />
+            <img alt="Icon" width="70" height="70" decoding="async" style="color:transparent" v-lazy="featured_img" />
           </div>
           <div class="img-with-text__title">{{ headerItem.title }}</div>
           <div class="img-with-text__description">{{ headerItem.description }}</div>
@@ -33,7 +33,20 @@
         </div>
         </div>
         <div class="right-column order-1 lg:order-2 mb-[30px] lg:mb-0">
-          <img alt="Vehicles" loading="lazy" width="784" height="500" decoding="async" class="w-full" style="color:transparent" :src="headerItem.image" />
+          <img
+            alt="Vehicles"
+            width="784"
+            height="500"
+            decoding="async"
+            class="w-full"
+            style="color:transparent"
+            :src="headerItem.image" 
+            v-lazy="{
+              src: headerItem.image,
+              loading: loadingImg,
+              error: loadingImg
+            }"
+          />
         </div>
       </div>
       </div>
@@ -52,7 +65,14 @@
         <div v-else class="row row-cols-1 lg:row-cols-3 gx-5 max-lg:gap-y-15px">
           <div class="col col-item" v-for="(item, index) in listData" :key="index">
             <div class="latest-blog__item">
-              <div class="latest-blog__item-image" v-lazy:background-image="item.image"></div>
+              <div
+                class="latest-blog__item-image"
+                v-lazy:background-image="{
+                  src: item.image,
+                  loading: loadingImg,
+                  error: loadingImg
+                }"
+              ></div>
               <!-- <img :alt="item.title" loading="lazy" width="440" height="475" decoding="async" class="latest-blog__item-image" style="color:transparent" :src="item.image" /> -->
               <!-- <div class="latest-blog__item-badge"></div> -->
               <div class="latest-blog__item-title">{{ item.title }}</div>
@@ -74,6 +94,7 @@ import featured_img from '@/assets/images/featured_img.png';
 import { Skeleton } from 'ant-design-vue';
 import newsListData from '@/store/newsListData';
 import { mockPaginationFetch } from '@/utils';
+import loadingImg from '@/store/loadingImg';
 
 const { t } = useI18n();
 

@@ -3,8 +3,6 @@ import type { UserConfig, ConfigEnv } from 'vite';
 import vue from "@vitejs/plugin-vue";
 import { wrapperEnv } from './build/utils';
 import { resolve } from "path";
-import Components from 'unplugin-vue-components/vite';
-import { VantResolver } from '@vant/auto-import-resolver';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import tailwindcss from '@tailwindcss/vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
@@ -40,9 +38,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     plugins: [
       vue(),
       vueJsx(),
-      Components({
-        resolvers: [VantResolver()],
-      }),
       tailwindcss(),
       createHtmlPlugin({
         // minify: mode === 'production',

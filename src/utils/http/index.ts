@@ -1,6 +1,6 @@
 //二次封装axios
 import type { AxiosResponse } from 'axios';
-import { ElMessage } from "element-plus";
+import { message } from 'ant-design-vue';
 import { isString } from '@/utils/is';
 import { joinTimestamp, formatRequestDate } from './helper';
 import { RequestEnum, ContentTypeEnum } from '@/enums/httpEnum';
@@ -121,10 +121,7 @@ const transform = {
       }
 
       if (errMessage) {
-        ElMessage({
-          message: errMessage,
-          type: "error",
-        });
+        message.error(errMessage);
         return Promise.reject(error);
       }
     } catch (error: any) {
@@ -190,10 +187,7 @@ function checkStatus(
   }
 
   if (errMessage) {
-      ElMessage({
-        message: errMessage,
-        type: "error",
-      });
+    message.error(errMessage);
   }
 }
 function createAxios(opt?: Partial<any>) {

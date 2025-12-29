@@ -32,7 +32,6 @@
 
 <script lang="ts" setup>
 import router from '@/router';
-import { ArrowLeft } from '@element-plus/icons-vue';
 import { watch, ref, nextTick } from 'vue';
 import { useI18n } from '@/locales/useI18n';
 import { Button } from 'ant-design-vue';

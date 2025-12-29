@@ -88,7 +88,6 @@
 </script>
 <script lang="ts" setup>
 import { defineComponent, ref, onMounted, reactive, nextTick } from "vue";
-import { ElMessage } from "element-plus";
 import router from "@/router";
 import scrollReveal from 'scrollreveal';
 import { useStore } from "@/store/user";
@@ -169,13 +168,6 @@ function setSr() {
       color: #000;
     }
   }
-}
-.el-carousel__item h3 {
-  color: #475669;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-  text-align: center;
 }
 .sense_container {
   .group-banner-box {
