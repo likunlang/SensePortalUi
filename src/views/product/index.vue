@@ -20,7 +20,20 @@
       <div v-if="productDetail.outlightImg" class="flex justify-center outlight-box">
         <img v-lazy="productDetail.outlightImg" />
       </div>
-      <img v-lazy="productDetail.infoTable" />
+      <div class="pswp-gallery" id="my-gallery">
+        <a
+          ref="image-thumb"
+          :href="productDetail.infoTable"
+          v-bind="pswpAttributes"
+          target="_blank"
+        >
+          <img
+            class="info-table"
+            v-lazy="productDetail.infoTable"
+            alt=""
+          />
+        </a>
+      </div>
     </div>
     <ContactForm :bg="productDetail.formImg" />
     <div v-if="showVideo" class="fixed top-[0px] left-[0px] bottom-[0px] right-[0px] bg-[#000] bg-opacity-90 flex items-center justify-center z-[10002]">
@@ -61,6 +74,13 @@ import { getAppEnvConfig } from '@/utils/env';
 const { t } = useI18n();
 import closeIcon from '@/assets/images/popup_close_button.png';
 import icon_paly from '@/assets/images/icon_paly.png';
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
+
+const pswpAttributes = ref({
+  'data-pswp-width': 1200,
+  'data-pswp-height': 2400
+});
 
 const { CDN_URL } = getAppEnvConfig();
 
@@ -78,9 +98,66 @@ watch(
   { immediate: true, deep: true }
 );
 
-function getProductDetail(id) {
+async function getProductDetail(id) {
   productDetail.value = findNode(productListData, (node) => node.id === id);
+  await preloadImages();
+  initPhotoSwipe();
 }
+
+async function getImageDimensions(url) {
+  try {
+    return new Promise((resolve, reject) => {
+      const img = new Image()
+      img.onload = () => {
+        resolve({
+          width: img.naturalWidth,
+          height: img.naturalHeight,
+          // aspectRatio: img.naturalWidth / img.naturalHeight
+        })
+      }
+      img.onerror = reject
+      img.src = url
+    })
+  } catch (e) {}
+}
+
+// 预加载图片并设置属性
+async function preloadImages(){
+  try {
+    await nextTick();
+
+    // 获取图片尺寸
+    const { width, height } = await getImageDimensions(productDetail.value.infoTable)
+    
+    // 生成 PhotoSwipe 属性
+    pswpAttributes.value = {
+      'data-pswp-width': width,
+      'data-pswp-height': height,
+    }
+  } catch (error) {
+    console.log(error);
+    // // 设置默认值
+    pswpAttributes.value = {
+      'data-pswp-width': 1200,
+      'data-pswp-height': 2400
+    }
+  }
+}
+
+async function initPhotoSwipe() {
+  await nextTick();
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#my-gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe'),
+    pinchToClose: false,
+    closeOnVerticalDrag: false
+  });
+
+  lightbox.init();
+}
+
 async function play() {
   showVideo.value = true;
   await nextTick();
@@ -92,13 +169,9 @@ function closeVideo() {
 
 </script>
 <style lang="less" scoped>
-  // :deep(.img-preview-mask) {
-  //   background: transparent;
-  //   &:hover {
-  //     opacity: 0;
-  //     cursor: url('data:image/svg+xml;utf8,<svg focusable="false" data-icon="zoom-in" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm284 424L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z"></path></svg>') 12 12, zoom-in;
-  //   }
-  // }
+  .pswp-gallery .info-table:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg focusable="false" data-icon="zoom-in" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm284 424L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z"></path></svg>') 12 12, zoom-in;
+  }
   .product-wrapper {
     // padding-top: 65px;
     .info-container {
@@ -112,6 +185,7 @@ function closeVideo() {
       :deep(.ant-image .ant-image-img),
       img {
         max-width: 1280px;
+        width: 100%;
       }
     }
   }

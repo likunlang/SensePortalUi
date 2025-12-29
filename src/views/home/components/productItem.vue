@@ -11,11 +11,11 @@
     :breakpoints="{
       '640': {
         slidesPerView: 2,
-        spaceBetween: 20,
+        spaceBetween: 10,
       },
       '768': {
         slidesPerView: 2,
-        spaceBetween: 30,
+        spaceBetween: 20,
       },
       '1024': {
         slidesPerView: 3,
@@ -163,12 +163,12 @@ function productDetail(item: any) {
   border-bottom-right-radius: 0;
   display: flex;
   justify-content: center;
-  height: 18vw;
+  // height: 18vw;
   img {
     display: block;
     // height: 18vw;
     // min-height: 180px;
-    // max-width: 135%;
+    max-width: 420px;
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -179,6 +179,7 @@ function productDetail(item: any) {
 }
 
 .strapline {
+  display: block;
   min-height: unset;
   padding-top: 0;
   font-size: 28px;
@@ -186,6 +187,7 @@ function productDetail(item: any) {
   font-weight: 400;
   letter-spacing: 0.01em;
   margin-bottom: 0;
+  margin-top: 5px;
 }
 
 .price {
@@ -248,9 +250,17 @@ a.highlight {
     padding-left: 33px;
   }
 }
+@media screen and (max-width: 1080px) {
+  .strapline {
+    font-size: 24px;
+  }
+}
 @media screen and (max-width: 768px) {
   .content {
-    // font-size: 14px;
+    font-size: 14px;
+  }
+  .strapline {
+    font-size: 20px;
   }
   .has-icon .label {
     padding: 5px;
