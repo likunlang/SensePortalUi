@@ -2,7 +2,8 @@
   <div class="home_wrapper">
     <VideoBanner />
     <ProductsSwiper />
-    <div class="home_add_bg" v-lazy:background-image="`${CDN_URL}/resource/images/add_bg.webp`">
+    <div class="home_add_bg">
+      <div class="mask" v-lazy:background-image="`${CDN_URL}/resource/images/brand_bg.webp`"></div>
       <div class="home_strategy">
         <div class="brand_container bde-section-11-118 bde-section">
           <div class="title">
@@ -101,6 +102,20 @@ function setSr() {
 </script>
 
 <style lang="less" scoped>
+.home_wrapper .home_add_bg {
+  position: relative;
+  .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scaleX(-1);
+  }
+}
 .brand_container {
   width: 100%;
   max-width: 1600px;

@@ -13,7 +13,10 @@
               </p>
             </div>
             <div class="img-box md:mb-6 md:w-full w-2/5">
-              <img class="new_pic" v-lazy="brandDetail.cover_lg"> 
+              <img class="new_pic" v-lazy="{
+                src: brandDetail.cover_lg,
+                loading: loadingImg,
+              }"> 
             </div>
           </div>
           <div class="brand_video_conatiner cursor-pointer" style="">
@@ -49,6 +52,7 @@ import MoreArticle from './moreArticle.vue';
 import { message, Skeleton } from 'ant-design-vue';
 import { getAppEnvConfig } from '@/utils/env';
 import { brandsListData } from '@/store/productListData';
+import loadingImg from '@/store/loadingImg';
 
 const { CDN_URL } = getAppEnvConfig();
 

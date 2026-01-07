@@ -5,12 +5,15 @@
         <div class="aboutus_content clearfix">
           <div class="flex top-container">
             <div class="container-l">
-              <img class="logo-img" v-lazy="`${CDN_URL}/resource/images/aboutsense.webp`" />
+              <img class="logo-img" v-lazy="{
+                src: `${CDN_URL}/resource/images/aboutsense.webp`,
+                loading: loadingImg,
+              }" />
             </div>
             <div class="container-r">
               <div class="aboutus_title">
                 about&nbsp;
-                <img class="text-logo" v-lazy="`${CDN_URL}/resource/images/SENSE2.webp`" />
+                <img class="text-logo" v-lazy="`${CDN_URL}/resource/images/SENSE2.webp`" alt="SENSE" title="SENSE" />
                 MOTORS
               </div>
               <div class="aboutus_sub-title">Pioneer in Electric Commercial Vehicle Solutions</div>
@@ -26,7 +29,7 @@
       <div class="why_choose_content" v-lazy:background-image="`${CDN_URL}/resource/images/center_bg.webp`">
           <div class="aboutus_title">
             Why choose&nbsp;
-            <img class="text-logo" v-lazy="`${CDN_URL}/resource/images/logo_header.webp`" />
+            <img class="text-logo" v-lazy="`${CDN_URL}/resource/images/logo_header.webp`" alt="SENSE" title="SENSE" />
             MOTORS？
           </div>
         <div class="aboutus_container">
@@ -60,6 +63,7 @@
 
 <script lang="ts" setup>
 import { getAppEnvConfig } from '@/utils/env';
+import loadingImg from '@/store/loadingImg';
 
 const { CDN_URL } = getAppEnvConfig();
 
