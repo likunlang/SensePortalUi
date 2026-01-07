@@ -601,17 +601,17 @@ function newsDetail(item: any) {
 }
 
 @media (min-width: 1536px) {
-	.why_container { max-width: 1400px; } 
+	.why_container { max-width: 1200px; } 
 
   .latest-blog__container {
-    max-width: 1400px;
+    max-width: 1200px;
   }
 }
 
 @media (min-width: 1600px) {
-	.why_container { max-width: 1400px; } 
+	.why_container { max-width: 1200px; } 
   .latest-blog__container {
-      max-width: 1400px;
+      max-width: 1200px;
   }
 }
 

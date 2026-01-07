@@ -19,7 +19,11 @@
       },
       '1024': {
         slidesPerView: 3,
-        spaceBetween: 60,
+        spaceBetween: 10,
+      },
+      '1200': {
+        slidesPerView: 4,
+        spaceBetween: 10,
       },
       '1620': {
         slidesPerView: 4,
@@ -155,7 +159,7 @@ function productDetail(item: any) {
 }
 
 .thumb {
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   width: 100%;
   border-radius: 10px;
@@ -166,11 +170,11 @@ function productDetail(item: any) {
   // height: 18vw;
   img {
     display: block;
-    // height: 18vw;
-    // min-height: 180px;
+    height: 12vw;
+    min-height: 180px;
     max-width: 420px;
-    width: 100%;
-    height: auto;
+    // width: 100%;
+    // height: auto;
     object-fit: contain;
     border-radius: 10px;
     border-bottom-left-radius: 0;

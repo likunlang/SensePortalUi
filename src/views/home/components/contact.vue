@@ -1,5 +1,5 @@
 <template>
-  <div id="contact_us" class="contact_us_container">
+  <div class="contact_us_container">
     <div class="mask_container" v-lazy:background-image="formBg"></div>
     <div class="container_inner">
       <Result

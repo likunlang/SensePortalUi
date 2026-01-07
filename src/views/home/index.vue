@@ -4,80 +4,46 @@
     <ProductsSwiper />
     <div class="home_add_bg" v-lazy:background-image="`${CDN_URL}/resource/images/add_bg.webp`">
       <div class="home_strategy">
-        <div class="sense_container bde-section-11-118 bde-section">
+        <div class="brand_container bde-section-11-118 bde-section">
           <div class="title">
             <p>
               <a href="javasctipt:;">
-                {{ t('index.home.h1')}}
-                <!-- <span>
-                  development strategy
-                </span> -->
+                Our Brands
               </a>
             </p>
           </div>
           <Flex class="home_add" gap="large">
-            <div class="item item1">
-              <img v-lazy="`${CDN_URL}/resource/images/str_img1.webp`" alt="" class="bg">
+            <div class="item item1" v-for="item in brandsListData" :key="item.name">
+              <img v-lazy="item.cover_sm" alt="" class="bg">
               <div class="text_block">
-                <h4>
-                  {{ t('index.home.h2')}}
-                </h4>
-                <p>
-                  {{ t('index.home.h2_sub')}}
-                </p>
-              </div>
-            </div>
-            <div class="item item2">
-              <img v-lazy="`${CDN_URL}/resource/images/str_img2.webp`" alt="" class="bg">
-              <div class="text_block">
-                <h4>
-                  {{ t('index.home.h3')}}
-                </h4>
-                <p>
-                  {{ t('index.home.h3_sub')}}
-                </p>
-              </div>
-            </div>
-            <div class="item item3">
-              <img v-lazy="`${CDN_URL}/resource/images/str_img3.webp`" alt="" class="bg">
-              <div class="text_block">
-                <h4>
-                  {{ t('index.home.h4')}}
-                </h4>
-                <p>
-                  {{ t('index.home.h4_sub')}}
-                </p>
+                <div class="flex justify-center items-center flex-col">
+                  <img class="mt-2 h-10" v-lazy="item.logo" />
+                  <button class="
+                      inline-block
+                      mt-12
+                      outline-0
+                      h-8 rounded-full text-base font-medium box-border
+                      transition-[background]
+                      duration-300
+                      bg-transparent border border-white text-white hover:bg-white md:hover:b hover:text-black
+                      mr-0 ml-0 
+                      px-4
+                      cursor-pointer
+                      items-center
+                      download-btn
+                    "
+                    style="width: fit-content;"
+                    @click="openPath(`/brand?id=${item.id}`)"
+                  >
+                    View More
+                  </button>
+                </div>
               </div>
             </div>
           </Flex>
         </div>
       </div>
     </div>
-    <!-- <div class="home_center" v-lazy:background-image="`${CDN_URL}/resource/images/center_bg.webp`">
-      <div class="mask">
-      </div>
-      <div class="sense_container" id="about_us" style="position: relative;z-index: 999;">
-        <div class="title">
-          <p>
-            <a href="javasctipt:;">
-              {{ t('index.home.h5')}}
-              <span class="text-white/80 pt-4">{{ t('index.home.h5_sub')}}</span>
-            </a>
-          </p>
-        </div>
-        <p class="text-white">
-          {{ t('index.home.h5_content_1')}}
-        </p>
-        <br />
-        <p class="text-white">
-          {{ t('index.home.h5_content_2')}}
-        </p>
-        <br />
-        <p class="text-white">
-          {{ t('index.home.h5_content_3')}}
-        </p>
-      </div>
-    </div> -->
   </div>
   <Contact />
 </template>
@@ -95,10 +61,11 @@ import { cmsArticleListData } from '@/api/cms';
 import { listToTree, findNode } from "@/utils/treeHelper";
 import { Flex } from "ant-design-vue";
 import { CaretRightFilled, DownloadOutlined } from '@ant-design/icons-vue';
-import { scrollToHash } from '@/utils';
+import { scrollToHash, openPath } from '@/utils';
 import Contact from './components/contact.vue';
 import VideoBanner from './components/videoBanner.vue';
 import ProductsSwiper from './components/productsSwiper.vue';
+import { brandsListData } from '@/store/productListData';
 
 import { getAppEnvConfig } from '@/utils/env';
 
@@ -134,6 +101,17 @@ function setSr() {
 </script>
 
 <style lang="less" scoped>
+.brand_container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1600px) {
+  .brand_container {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+}
 .banner-img-box {
   width: 100%;
   height: 100%;

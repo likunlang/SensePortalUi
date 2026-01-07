@@ -126,3 +126,47 @@ export default [
     ]
   },
 ];
+export const brandsListData = [
+  {
+    id: 'wuling',
+    name: 'wuling',
+    logo: `${CDN_URL}/resource/images/logo_wuling.png`,
+    logo_color: `${CDN_URL}/resource/images/logo_wuling_color.webp`,
+    cover_sm: `${CDN_URL}/resource/images/cover_wuling_sm.webp`,
+    cover_lg: `${CDN_URL}/resource/images/cover_wuling_lg.webp`,
+    poster: `${CDN_URL}/resource/images/poster_wuling.webp`,
+    video: `${CDN_URL}/video/wuling.mp4`,
+    content: [
+      'Wuling Motors Holdings Limited is a Hong Kong listed company that focuses on the automotive industry business,and the Stock Abbreviation : Wuling Motors, stock code is 00305.HK. HK.The company inherits nearly a century of manufacturing experience from the controlling shareholder Guangxi Automotive Group, focusing on the design, research and development, and manufacturing of automotive components, automotive power systems, and commercial vehicles which includes new energy logistics vehicles.',
+      "It provides high-value component products to over 40 Automobile manufacturer, power systems to over 10 million terminal client, and To provide more than 1 million users with quality and suitable vehicle and travel services. Currently, we have production bases in Liuzhou, Qingdao, Chongqing, Jingmen, Nanning, Indonesia, and India. We are a National High-Tech Enterprise and ranked among China's Top 100 Automotive Supply Chain Enterprises.",
+    ]
+  },
+  {
+    id: 'dongfeng',
+    name: 'dongfeng',
+    logo: `${CDN_URL}/resource/images/logo_dongfeng.png`,
+    logo_color: `${CDN_URL}/resource/images/logo_dongfeng_color.svg`,
+    cover_sm: `${CDN_URL}/resource/images/cover_dongfeng_sm.webp`,
+    cover_lg: `${CDN_URL}/resource/images/cover_dongfeng_lg.webp`,
+    poster: `${CDN_URL}/resource/images/poster_dongfeng.webp`,
+    video: `${CDN_URL}/video/dongfeng.mp4`,
+    content: [
+      "Dongfeng Motor Corporation Limited is a significant backbone of China's automotive industry. Its predecessor, the Second Automobile Manufacturing Plant, was established in 1969. The company is headquartered in Wuhan, Hubei Province. It currently has total assets of 499.3 billion yuan and employs 127,000 people, ranked 188nd in the world's top 500. It has sold over 1,200,000 vehicles overseas, with its products sold in over 100 countries.",
+    ]
+  },
+  {
+    id: 'sany',
+    name: 'sany',
+    logo: `${CDN_URL}/resource/images/logo_sany.svg`,
+    logo_color: `${CDN_URL}/resource/images/logo_sany_color.svg`,
+    cover_sm: `${CDN_URL}/resource/images/cover_sany_sm.webp`,
+    cover_lg: `${CDN_URL}/resource/images/cover_sany_lg.webp`,
+    poster: `${CDN_URL}/resource/images/poster_sany.webp`,
+    video: `${CDN_URL}/resource/video/sany.mp4`,
+    content: [
+      "Since 1989, SANY’s vision to build a first-class enterprise, to foster first-class employees, and to make first-class contributions to society has never wavered.We have focused on delivering value to customers, employees, shareholders, and the public by offering high-quality products and services,providing a work environment full of opportunities, releasing financial reports to meet investor expectations, and exerting our own influence to help those in need.",
+      "In the past three decades, we have expanded our business to a wide range of areas, including construction and mining equipment, port machinery, oil drilling machinery, and renewable wind energy systems. We keep exploring more possibilities to expand our reach and innovate our way of doing business as well as to raise the standard and answer the call for new market needs",
+      "SANY is a forward-looking company that was born in a time of change and now looks for any opportunity in those changes that will lead the way to the future. We are unleashing the power of data in the connectivity of machines, realizing smart manufacturing and autonomous operation with some models.The efforts to add a new electric product portfolio makes SANY stand out in today’s digital world and is also part of our sustainable solutions."
+    ]
+  },
+];

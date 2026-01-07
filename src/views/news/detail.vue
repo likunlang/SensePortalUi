@@ -3,11 +3,11 @@
     <div class="content_block clearfix">
       <div class="second_page news_detail_content news_content fadeInUpSmall">
         <div class="news_container clearfix">
-          <div style="margin-bottom: 20px">
-            <Button type="primary" @click="back">&lt;&nbsp;&nbsp;{{ t('index.common.back')}}</Button>
-          </div>
           <Skeleton class="" active :paragraph="{ rows: 8 }" v-if="loading" />
           <div class="news_detail clearfix" v-else>
+            <div>
+              <Button type="primary" @click="back">&lt;&nbsp;&nbsp;{{ t('index.common.back')}}</Button>
+            </div>
             <h4>{{ newsDetail?.title }}</h4>
             <div class="handle clearfix">
             <ul class="clearfix">
