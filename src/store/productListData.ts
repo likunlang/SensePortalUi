@@ -91,7 +91,7 @@ export default [
       {
         "id": "G050P-L",
         "name": 'G050P-L',
-        "type": "Small Van",
+        "type": "Small Truck",
         "size": "3695*1475*1980",
         "GVW": "1.6T",
         "Battery": "29.67kWh",

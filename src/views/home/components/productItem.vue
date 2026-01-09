@@ -203,7 +203,7 @@ function productDetail(item: any) {
 }
 
 a.highlight {
-  color: #0078d6 !important;
+  color: #0232da !important;
 }
 
 .content {

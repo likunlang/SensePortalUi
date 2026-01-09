@@ -11,10 +11,10 @@
               }" />
             </div>
             <div class="container-r">
-              <div class="aboutus_title">
-                about&nbsp;
+              <div class="aboutus_title" style="color: #0232da">
+                <span>about&nbsp;</span>
                 <img class="text-logo" v-lazy="`${CDN_URL}/resource/images/SENSE2.webp`" alt="SENSE" title="SENSE" />
-                MOTORS
+                <span>MOTOR</span>
               </div>
               <div class="aboutus_sub-title">Pioneer in Electric Commercial Vehicle Solutions</div>
               <div class="mt-3">
@@ -28,29 +28,44 @@
       </div>
       <div class="why_choose_content" v-lazy:background-image="`${CDN_URL}/resource/images/center_bg.webp`">
           <div class="aboutus_title">
-            Why choose&nbsp;
+            <span>Why choose&nbsp;</span>
             <img class="text-logo" v-lazy="`${CDN_URL}/resource/images/logo_header.webp`" alt="SENSE" title="SENSE" />
-            MOTORS？
+           <span> MOTOR？</span>
           </div>
         <div class="aboutus_container">
           <ul class="reason-box">
             <li class="reason-item">
+              <div class="flex justify-center reason-icon">
+                <img class="reason-item-img" src="/resource/images/reason_icon_heart.webp" />
+              </div>
               <div class="reason-title">Customer First</div>
               <div class="content-p">Prioritize customer needs in every decision, striving to exceed expectations with optimal products and dedicated services.</div>
             </li>
             <li class="reason-item">
+              <div class="flex justify-center reason-icon">
+                <img class="reason-item-img" src="/resource/images/reason_icon_corpper.webp" />
+              </div>
               <div class="reason-title">Integrity&Partnership</div>
               <div class="content-p">Build lasting partnerships on a foundation of transparency, trust, and mutual success, ensuring fair and ethical operations.</div>
             </li>
             <li class="reason-item">
+              <div class="flex justify-center reason-icon">
+                <img class="reason-item-img" src="/resource/images/reason_icon_thunder.webp" />
+              </div>
               <div class="reason-title">Agile&Pragmatic</div>
               <div class="content-p">Respond quickly to market changes with a practical and results-oriented approach, valuing tangible outcomes over theoretical ideas.</div>
             </li>
             <li class="reason-item">
+              <div class="flex justify-center reason-icon">
+                <img class="reason-item-img" src="/resource/images/reason_icon_light.webp" />
+              </div>
               <div class="reason-title">Open Innovation</div>
               <div class="content-p">Actively collaborate with external partners, universities, and research institutes to integrate diverse ideas and drive technological breakthroughs.</div>
             </li>
             <li class="reason-item">
+              <div class="flex justify-center reason-icon">
+                <img class="reason-item-img" src="/resource/images/reason_icon_earth.webp" />
+              </div>
               <div class="reason-title">Social Responsibility</div>
               <div class="content-p">Committed to sustainable development and contributing positively to our communities, aiming to create long-term value for society.</div>
             </li>
@@ -69,6 +84,11 @@ const { CDN_URL } = getAppEnvConfig();
 
 </script>
 <style lang="less" scoped>
+    @font-face {
+      font-family: sense;
+      src: url(/resource/font/sense.ttf);
+      // src: url(/resource/font/Morganite-SemiBold.ttf) format("ttf");
+    }
     .aboutus_container {
       width: 100%;
       max-width: 1200px;
@@ -85,19 +105,24 @@ const { CDN_URL } = getAppEnvConfig();
       padding: 60px 0;
     }
     .aboutus_title {
+      font-family: sense;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #12151a;
       // line-height: 40px;
-      font-size: 28px;
+      font-size: 25px;
       font-weight: bold;
       text-transform: uppercase;
       white-space: nowrap;
+      > span {
+        transform: scaleY(0.7);
+        transform-origin: center;
+      }
     }
     .text-logo {
       display: inline-block;
-      width: 15vw;
+      width: 12vw;
       margin: 0px 5px;
       max-width: 200px;
       min-width: 120px;
@@ -115,7 +140,11 @@ const { CDN_URL } = getAppEnvConfig();
       color: #12151a;
       // color: #fff;
       text-transform: uppercase;
-      margin: 50px auto 10px;
+      margin: 0 auto 10px;
+    }
+    .reason-icon {
+      margin-top: 50px;
+      margin-bottom: 10px;
     }
     .content-p {
       color: #000;
@@ -174,9 +203,13 @@ const { CDN_URL } = getAppEnvConfig();
     gap: 20px;
     .reason-item {
       // min-width: 205px;
+      &-img {
+        display: block;
+        width: 60px;
+      }
     }
     .content-p {
-      text-align: left;
+      text-align: center;
     }
   }
 
@@ -196,12 +229,22 @@ const { CDN_URL } = getAppEnvConfig();
     }
     .reason-box {
       gap: 10px;
+      // .reason-item {
+      //   &-img {
+      //     width: 50px;
+      //   }
+      // }
     }
   }
   @media screen and (max-width: 768px) {
     .reason-box {
       flex-direction: column;
       gap: 0;
+      // .reason-item {
+      //   &-img {
+      //     width: 40px;
+      //   }
+      // }
     }
     .logo-img {
       max-width: 100%;
@@ -212,8 +255,10 @@ const { CDN_URL } = getAppEnvConfig();
     .container-r {
       padding: 20px;
     }
-    .reason-title {
+    .reason-icon {
       margin-top: 20px;
+    }
+    .reason-title {
       height: auto;
     }
     .content-p {
