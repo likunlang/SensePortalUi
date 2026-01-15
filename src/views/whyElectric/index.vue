@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-12 lg:col-6">
             <div class="featured-area__title">
-              Why electric makes sense?
+              Why<br/>Electric vehicle<br/>Makes sense?
             </div>
           </div>
           <div class="col-12 lg:col-6">

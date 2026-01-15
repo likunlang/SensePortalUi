@@ -186,8 +186,12 @@ watch(
 )
 const blackHeader = computed(() => {
   const flag = false;
-  const blackArr = ['why_electric', 'aboutus']
+  const blackArr = ['why_electric', 'aboutus'];
   const key = menuActiveKeys.value[0];
+  const path = currentFullPath.value;
+  if (path.indexOf('brand') > -1) {
+    return true;
+  }
   return blackArr.includes(key);
 })
 onMounted(async () => {

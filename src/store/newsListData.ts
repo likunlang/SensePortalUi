@@ -7,7 +7,7 @@ export default [
     title: 'Eastern European Fleet Case Studies: Do Electric Trucks Deliver €150,000+ in Savings',
     description: `Amid stricter environmental policies and volatile fuel prices in Eastern Europe, Total Cost of Ownership (TCO) is key for logistics ﬂeet owners updating ﬂeets. Once seen as " high-cost alternatives", electric trucks are gaining attention. Below is a dialogue between a senior new energy commercial vehicle R&D expert and Eastern European ﬂ eet owner rep Mr. Ivan, focusing on electric truck TCO`,
     createDate: "2026-01-14 13:17",
-    image: CDN_URL + '/resource/news/news_20260114_01.webp',
+    image: CDN_URL + '/resource/news/news_20260114_04.webp',
     weight: 7,
   },
   {
@@ -15,7 +15,7 @@ export default [
     title: 'The Last-Mile Delivery Revolution：Diesel to ECVs',
     description: `The "last mile" of delivery — the final leg from a local hub to the customer's doorstep — is the most critical, costly, and challenging segment of logistics. As e-commerce demand soars, with 60% of consumers now expecting same-day delivery, the pressure on urban logistics is immense.`,
     createDate: "2026-01-13 13:01",
-    image: CDN_URL + '/resource/products/product_E-STAR_V5.webp',
+    image: CDN_URL + '/resource/news/news_20260114_05.webp',
     weight: 6,
   },
   {
@@ -60,7 +60,7 @@ export default [
   },
   {
     id: '202511250918',
-    title: "Commercial Electric Vans Really Are Less Expensive in Europe in 2026: Here's Why",
+    title: "Electric Vans Really Are Less Expensive in Europe in 2026: Here's Why",
     description: "Switching to electric vans (EVs) might seem pricey upfront, but in 2026, they're often cheaper long-term than diesel vans across Europe. With lower fuel, maintenance costs, and generous incentives, EVs can save up to 25% per km in total cost of ownership (TCO), potentially €13.1 billion for businesses by 2030.",
     createDate: "2025-11-25 09:18",
     image: CDN_URL + '/resource/news/news_G050.webp',
