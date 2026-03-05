@@ -118,7 +118,7 @@ export const PAGES: AppRouteRecordRaw = {
     {
       path: '/brand',
       name: 'Brand',
-      component: () => import('@/views/Brand/index.vue'),
+      component: () => import('@/views/brand/index.vue'),
       meta: {
         title: 'Brand',
         affix: true,
